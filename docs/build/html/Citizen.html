@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Citizen module &mdash; DAVE  documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="EnergyCalc module" href="EnergyCalc.html" />
+    <link rel="prev" title="BIG DAVE" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            DAVE
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Citizen module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Citizen.Citizen"><code class="docutils literal notranslate"><span class="pre">Citizen</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Citizen.Citizen.add_to_dict"><code class="docutils literal notranslate"><span class="pre">Citizen.add_to_dict()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Citizen.Citizen.age_group"><code class="docutils literal notranslate"><span class="pre">Citizen.age_group</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Citizen.Citizen.archetype"><code class="docutils literal notranslate"><span class="pre">Citizen.archetype</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Citizen.Citizen.commute_mode_index"><code class="docutils literal notranslate"><span class="pre">Citizen.commute_mode_index</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Citizen.Citizen.create_new_destination"><code class="docutils literal notranslate"><span class="pre">Citizen.create_new_destination()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Citizen.Citizen.current_grid"><code class="docutils literal notranslate"><span class="pre">Citizen.current_grid</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Citizen.Citizen.current_route"><code class="docutils literal notranslate"><span class="pre">Citizen.current_route</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Citizen.Citizen.daytype"><code class="docutils literal notranslate"><span class="pre">Citizen.daytype</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Citizen.Citizen.from_row"><code class="docutils literal notranslate"><span class="pre">Citizen.from_row()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Citizen.Citizen.get_household_members"><code class="docutils literal notranslate"><span class="pre">Citizen.get_household_members()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Citizen.Citizen.hh_members_in_same_room"><code class="docutils literal notranslate"><span class="pre">Citizen.hh_members_in_same_room()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Citizen.Citizen.home"><code class="docutils literal notranslate"><span class="pre">Citizen.home</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Citizen.Citizen.household_id"><code class="docutils literal notranslate"><span class="pre">Citizen.household_id</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Citizen.Citizen.household_num"><code class="docutils literal notranslate"><span class="pre">Citizen.household_num</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Citizen.Citizen.household_size"><code class="docutils literal notranslate"><span class="pre">Citizen.household_size</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Citizen.Citizen.increase_subarea_total"><code class="docutils literal notranslate"><span class="pre">Citizen.increase_subarea_total()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Citizen.Citizen.movement"><code class="docutils literal notranslate"><span class="pre">Citizen.movement</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Citizen.Citizen.next"><code class="docutils literal notranslate"><span class="pre">Citizen.next()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Citizen.Citizen.occupant_num"><code class="docutils literal notranslate"><span class="pre">Citizen.occupant_num</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Citizen.Citizen.outside_test_area"><code class="docutils literal notranslate"><span class="pre">Citizen.outside_test_area</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Citizen.Citizen.profile"><code class="docutils literal notranslate"><span class="pre">Citizen.profile</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Citizen.Citizen.school_grid"><code class="docutils literal notranslate"><span class="pre">Citizen.school_grid</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Citizen.Citizen.select_profile"><code class="docutils literal notranslate"><span class="pre">Citizen.select_profile()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Citizen.Citizen.state"><code class="docutils literal notranslate"><span class="pre">Citizen.state</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Citizen.Citizen.subarea"><code class="docutils literal notranslate"><span class="pre">Citizen.subarea</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Citizen.Citizen.work_grid"><code class="docutils literal notranslate"><span class="pre">Citizen.work_grid</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="EnergyCalc.html">EnergyCalc module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Initialise.html">Initialise module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Initialise_nhoods.html">Initialise_nhoods module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Main_run.html">Main_run module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Movement.html">Movement module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Nhood.html">Nhood module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Profile.html">Profile module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="STEBBS.html">STEBBS module</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">DAVE</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Citizen module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/Citizen.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-Citizen">
+<span id="citizen-module"></span><h1>Citizen module<a class="headerlink" href="#module-Citizen" title="Link to this heading"></a></h1>
+<p>DAVE-03 - Citizen.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="Citizen.Citizen">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Citizen.</span></span><span class="sig-name descname"><span class="pre">Citizen</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">home</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">archetype</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">household_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">household_num</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">occupant_num</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">age_group</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="Profile.html#Profile.Age" title="Profile.Age"><span class="pre">Age</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">current_grid</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">household_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">daytype</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">work_grid</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">school_grid</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subarea</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="Profile.html#Profile.Subarea" title="Profile.Subarea"><span class="pre">Subarea</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">Subarea.HOME</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="Profile.html#Profile.State" title="Profile.State"><span class="pre">State</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">State.ASLEEP</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">profile</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="Profile.html#Profile.Profile" title="Profile.Profile"><span class="pre">Profile</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">movement</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="Movement.html#Movement.Movement" title="Movement.Movement"><span class="pre">Movement</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">commute_mode_index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outside_test_area</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Citizen.Citizen" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Citizen object.</p>
+<section id="parameters">
+<h2>Parameters<a class="headerlink" href="#parameters" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt>home<span class="classifier">int</span></dt><dd><p>Home Nhood of citizen</p>
+</dd>
+<dt>archetype<span class="classifier">str</span></dt><dd><p>Building archetype citizen lives in</p>
+</dd>
+<dt>household_size<span class="classifier">int</span></dt><dd><p>Number of people living in citizens household</p>
+</dd>
+<dt>household_num<span class="classifier">int</span></dt><dd><p>Each household in a grid has a unique number identifier</p>
+</dd>
+<dt>occupant_num<span class="classifier">int</span></dt><dd><p>Each occcupant of a household has a unique number identifier</p>
+</dd>
+<dt>age_group<span class="classifier">Age</span></dt><dd><p>Age group of citizen (Infant, Child, Adult, Senior)</p>
+</dd>
+<dt>current_grid<span class="classifier">int</span></dt><dd><p>Location of citizen at current time step</p>
+</dd>
+<dt>household_id<span class="classifier">str</span></dt><dd><p>Each household in a building archetype has a unique number identifier</p>
+</dd>
+<dt>daytype<span class="classifier">int </span></dt><dd><p>daytype (0 = workday, 1 = weekend). Initialised as 0 -&gt; CHECK THIS</p>
+</dd>
+<dt>work_grid<span class="classifier">int</span></dt><dd><p>Nhood where citizen works. Initialised as None</p>
+</dd>
+<dt>school_grid<span class="classifier">int</span></dt><dd><p>Nhood where citizen goes to school. Initialised as None</p>
+</dd>
+<dt>current_route</dt><dd><p>If citzen is travellign this is their current route. Initialised as None</p>
+</dd>
+<dt>subarea<span class="classifier">Subarea</span></dt><dd><p>Subarea citizne is in at current timestep. Initialised as Home</p>
+</dd>
+<dt>state<span class="classifier">State</span></dt><dd><p>If citizen is awake or asleep. Initialised as asleep</p>
+</dd>
+<dt>profile: Profile</dt><dd><p>Acitivity profile citizen is currently doing. Initialised as None</p>
+</dd>
+<dt>movement: Movement</dt><dd><p>Movement object holding information about citizens current journey (if travelling). 
+Initialised as None</p>
+</dd>
+<dt>commute_mode_index: int</dt><dd><p>Transport mode citizen uses for commuting to school/work</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="Citizen.Citizen.add_to_dict">
+<span class="sig-name descname"><span class="pre">add_to_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dictionary</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Citizen.Citizen.add_to_dict" title="Link to this definition"></a></dt>
+<dd><p>Check if key is in dictionary and initialise as value or add value.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Citizen.Citizen.age_group">
+<span class="sig-name descname"><span class="pre">age_group</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="Profile.html#Profile.Age" title="Profile.Age"><span class="pre">Age</span></a></em><a class="headerlink" href="#Citizen.Citizen.age_group" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Citizen.Citizen.archetype">
+<span class="sig-name descname"><span class="pre">archetype</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#Citizen.Citizen.archetype" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Citizen.Citizen.commute_mode_index">
+<span class="sig-name descname"><span class="pre">commute_mode_index</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#Citizen.Citizen.commute_mode_index" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Citizen.Citizen.create_new_destination">
+<span class="sig-name descname"><span class="pre">create_new_destination</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ts</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Citizen.Citizen.create_new_destination" title="Link to this definition"></a></dt>
+<dd><p>Create new movement object for citizen.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Citizen.Citizen.current_grid">
+<span class="sig-name descname"><span class="pre">current_grid</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#Citizen.Citizen.current_grid" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Citizen.Citizen.current_route">
+<span class="sig-name descname"><span class="pre">current_route</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#Citizen.Citizen.current_route" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Citizen.Citizen.daytype">
+<span class="sig-name descname"><span class="pre">daytype</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#Citizen.Citizen.daytype" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Citizen.Citizen.from_row">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_row</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">grid_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">row</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Citizen.Citizen.from_row" title="Link to this definition"></a></dt>
+<dd><p>Create citizen object from row of pandas dataframe.</p>
+<section id="id1">
+<h3>Parameters<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>grid_name<span class="classifier">str</span></dt><dd><p>Citizens home grid</p>
+</dd>
+<dt>row: Dataframe row</dt><dd><p>Each row of citizen input dataframe contains information on one citizen</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Citizen.Citizen.get_household_members">
+<span class="sig-name descname"><span class="pre">get_household_members</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">all_citizens</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Citizen.Citizen.get_household_members" title="Link to this definition"></a></dt>
+<dd><p>Find other citizens who share a household with given citizen.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Citizen.Citizen.hh_members_in_same_room">
+<span class="sig-name descname"><span class="pre">hh_members_in_same_room</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">household_members</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Citizen.Citizen.hh_members_in_same_room" title="Link to this definition"></a></dt>
+<dd><p>Return list of household members in same room.</p>
+<section id="id2">
+<h3>Parameters<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>household_members<span class="classifier">list</span></dt><dd><p>List of all household memebers</p>
+</dd>
+</dl>
+</section>
+<section id="returns">
+<h3>Returns<a class="headerlink" href="#returns" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>in_same_room<span class="classifier">list</span></dt><dd><p>List of all household members in same room</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Citizen.Citizen.home">
+<span class="sig-name descname"><span class="pre">home</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#Citizen.Citizen.home" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Citizen.Citizen.household_id">
+<span class="sig-name descname"><span class="pre">household_id</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#Citizen.Citizen.household_id" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Citizen.Citizen.household_num">
+<span class="sig-name descname"><span class="pre">household_num</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#Citizen.Citizen.household_num" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Citizen.Citizen.household_size">
+<span class="sig-name descname"><span class="pre">household_size</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#Citizen.Citizen.household_size" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Citizen.Citizen.increase_subarea_total">
+<span class="sig-name descname"><span class="pre">increase_subarea_total</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">household</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Citizen.Citizen.increase_subarea_total" title="Link to this definition"></a></dt>
+<dd><p>Increase the total population for citizens subarea in Nhood object
+Extract the appliance and metabolic energies, and the number of
+water users in each grid from the citizen objects.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Citizen.Citizen.movement">
+<span class="sig-name descname"><span class="pre">movement</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="Movement.html#Movement.Movement" title="Movement.Movement"><span class="pre">Movement</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#Citizen.Citizen.movement" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Citizen.Citizen.next">
+<span class="sig-name descname"><span class="pre">next</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ts</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Citizen.Citizen.next" title="Link to this definition"></a></dt>
+<dd><p>Move citizen on to next step of energy profile or Movement route.</p>
+<section id="id3">
+<h3>Parameters<a class="headerlink" href="#id3" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>ts<span class="classifier">int</span></dt><dd><p>Current time step</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Citizen.Citizen.occupant_num">
+<span class="sig-name descname"><span class="pre">occupant_num</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#Citizen.Citizen.occupant_num" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Citizen.Citizen.outside_test_area">
+<span class="sig-name descname"><span class="pre">outside_test_area</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#Citizen.Citizen.outside_test_area" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Citizen.Citizen.profile">
+<span class="sig-name descname"><span class="pre">profile</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="Profile.html#Profile.Profile" title="Profile.Profile"><span class="pre">Profile</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#Citizen.Citizen.profile" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Citizen.Citizen.school_grid">
+<span class="sig-name descname"><span class="pre">school_grid</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#Citizen.Citizen.school_grid" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Citizen.Citizen.select_profile">
+<span class="sig-name descname"><span class="pre">select_profile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ts</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Citizen.Citizen.select_profile" title="Link to this definition"></a></dt>
+<dd><p>Randomly select activity profile from correct range in profiles.</p>
+<section id="id4">
+<h3>Parameters<a class="headerlink" href="#id4" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>ts<span class="classifier">int</span></dt><dd><p>Current time step</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Citizen.Citizen.state">
+<span class="sig-name descname"><span class="pre">state</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="Profile.html#Profile.State" title="Profile.State"><span class="pre">State</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#Citizen.Citizen.state" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Citizen.Citizen.subarea">
+<span class="sig-name descname"><span class="pre">subarea</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="Profile.html#Profile.Subarea" title="Profile.Subarea"><span class="pre">Subarea</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#Citizen.Citizen.subarea" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Citizen.Citizen.work_grid">
+<span class="sig-name descname"><span class="pre">work_grid</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#Citizen.Citizen.work_grid" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="BIG DAVE" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="EnergyCalc.html" class="btn btn-neutral float-right" title="EnergyCalc module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Megan McGrory.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

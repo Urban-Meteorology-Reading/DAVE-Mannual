@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Profile module &mdash; DAVE  documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="STEBBS module" href="STEBBS.html" />
+    <link rel="prev" title="Nhood module" href="Nhood.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            DAVE
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Citizen.html">Citizen module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EnergyCalc.html">EnergyCalc module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Initialise.html">Initialise module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Initialise_nhoods.html">Initialise_nhoods module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Main_run.html">Main_run module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Movement.html">Movement module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Nhood.html">Nhood module</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Profile module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Profile.Age"><code class="docutils literal notranslate"><span class="pre">Age</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Profile.Age.ADULT"><code class="docutils literal notranslate"><span class="pre">Age.ADULT</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Profile.Age.CHILD"><code class="docutils literal notranslate"><span class="pre">Age.CHILD</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Profile.Age.INFANT"><code class="docutils literal notranslate"><span class="pre">Age.INFANT</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Profile.Age.SENIOR"><code class="docutils literal notranslate"><span class="pre">Age.SENIOR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Profile.Age.TEENAGER"><code class="docutils literal notranslate"><span class="pre">Age.TEENAGER</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Profile.Age.from_string"><code class="docutils literal notranslate"><span class="pre">Age.from_string()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#Profile.DayType"><code class="docutils literal notranslate"><span class="pre">DayType</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Profile.DayType.WEEKDAY"><code class="docutils literal notranslate"><span class="pre">DayType.WEEKDAY</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Profile.DayType.WEEKEND"><code class="docutils literal notranslate"><span class="pre">DayType.WEEKEND</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Profile.DayType.from_string"><code class="docutils literal notranslate"><span class="pre">DayType.from_string()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#Profile.Profile"><code class="docutils literal notranslate"><span class="pre">Profile</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Profile.Profile.age"><code class="docutils literal notranslate"><span class="pre">Profile.age</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Profile.Profile.appliance_energy"><code class="docutils literal notranslate"><span class="pre">Profile.appliance_energy</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Profile.Profile.day_type"><code class="docutils literal notranslate"><span class="pre">Profile.day_type</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Profile.Profile.final_state"><code class="docutils literal notranslate"><span class="pre">Profile.final_state</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Profile.Profile.final_subarea"><code class="docutils literal notranslate"><span class="pre">Profile.final_subarea</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Profile.Profile.finished"><code class="docutils literal notranslate"><span class="pre">Profile.finished</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Profile.Profile.from_row"><code class="docutils literal notranslate"><span class="pre">Profile.from_row()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Profile.Profile.household_size"><code class="docutils literal notranslate"><span class="pre">Profile.household_size</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Profile.Profile.initial_state"><code class="docutils literal notranslate"><span class="pre">Profile.initial_state</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Profile.Profile.initial_subarea"><code class="docutils literal notranslate"><span class="pre">Profile.initial_subarea</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Profile.Profile.key"><code class="docutils literal notranslate"><span class="pre">Profile.key()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Profile.Profile.light_use"><code class="docutils literal notranslate"><span class="pre">Profile.light_use</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Profile.Profile.metabolic_energy"><code class="docutils literal notranslate"><span class="pre">Profile.metabolic_energy</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Profile.Profile.next"><code class="docutils literal notranslate"><span class="pre">Profile.next()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Profile.Profile.rooms"><code class="docutils literal notranslate"><span class="pre">Profile.rooms</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Profile.Profile.ts"><code class="docutils literal notranslate"><span class="pre">Profile.ts</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Profile.Profile.water_use"><code class="docutils literal notranslate"><span class="pre">Profile.water_use</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#Profile.State"><code class="docutils literal notranslate"><span class="pre">State</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Profile.State.ASLEEP"><code class="docutils literal notranslate"><span class="pre">State.ASLEEP</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Profile.State.AWAKE"><code class="docutils literal notranslate"><span class="pre">State.AWAKE</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Profile.State.from_string"><code class="docutils literal notranslate"><span class="pre">State.from_string()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#Profile.Subarea"><code class="docutils literal notranslate"><span class="pre">Subarea</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Profile.Subarea.BUS"><code class="docutils literal notranslate"><span class="pre">Subarea.BUS</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Profile.Subarea.CULTURAL"><code class="docutils literal notranslate"><span class="pre">Subarea.CULTURAL</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Profile.Subarea.CYCLING"><code class="docutils literal notranslate"><span class="pre">Subarea.CYCLING</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Profile.Subarea.DRIVING"><code class="docutils literal notranslate"><span class="pre">Subarea.DRIVING</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Profile.Subarea.HEALTHCARE"><code class="docutils literal notranslate"><span class="pre">Subarea.HEALTHCARE</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Profile.Subarea.HOME"><code class="docutils literal notranslate"><span class="pre">Subarea.HOME</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Profile.Subarea.HOSPITALITY"><code class="docutils literal notranslate"><span class="pre">Subarea.HOSPITALITY</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Profile.Subarea.HOTEL"><code class="docutils literal notranslate"><span class="pre">Subarea.HOTEL</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Profile.Subarea.INDOORENT"><code class="docutils literal notranslate"><span class="pre">Subarea.INDOORENT</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Profile.Subarea.LARGESHOP"><code class="docutils literal notranslate"><span class="pre">Subarea.LARGESHOP</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Profile.Subarea.OUTDOOR"><code class="docutils literal notranslate"><span class="pre">Subarea.OUTDOOR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Profile.Subarea.OUTDOORENT"><code class="docutils literal notranslate"><span class="pre">Subarea.OUTDOORENT</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Profile.Subarea.PRIMARY_SCHOOL"><code class="docutils literal notranslate"><span class="pre">Subarea.PRIMARY_SCHOOL</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Profile.Subarea.SECONDARY_SCHOOL"><code class="docutils literal notranslate"><span class="pre">Subarea.SECONDARY_SCHOOL</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Profile.Subarea.SMALLSHOP"><code class="docutils literal notranslate"><span class="pre">Subarea.SMALLSHOP</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Profile.Subarea.TEMPRES"><code class="docutils literal notranslate"><span class="pre">Subarea.TEMPRES</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Profile.Subarea.TRAIN"><code class="docutils literal notranslate"><span class="pre">Subarea.TRAIN</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Profile.Subarea.TUBE"><code class="docutils literal notranslate"><span class="pre">Subarea.TUBE</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Profile.Subarea.UNIVERSITY"><code class="docutils literal notranslate"><span class="pre">Subarea.UNIVERSITY</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Profile.Subarea.WAIT"><code class="docutils literal notranslate"><span class="pre">Subarea.WAIT</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Profile.Subarea.WALKING"><code class="docutils literal notranslate"><span class="pre">Subarea.WALKING</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Profile.Subarea.WORK"><code class="docutils literal notranslate"><span class="pre">Subarea.WORK</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Profile.Subarea.from_string"><code class="docutils literal notranslate"><span class="pre">Subarea.from_string()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="STEBBS.html">STEBBS module</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">DAVE</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Profile module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/Profile.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-Profile">
+<span id="profile-module"></span><h1>Profile module<a class="headerlink" href="#module-Profile" title="Link to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="Profile.Age">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Profile.</span></span><span class="sig-name descname"><span class="pre">Age</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Profile.Age" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<p>An enumeration.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Profile.Age.ADULT">
+<span class="sig-name descname"><span class="pre">ADULT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#Profile.Age.ADULT" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Profile.Age.CHILD">
+<span class="sig-name descname"><span class="pre">CHILD</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#Profile.Age.CHILD" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Profile.Age.INFANT">
+<span class="sig-name descname"><span class="pre">INFANT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">5</span></em><a class="headerlink" href="#Profile.Age.INFANT" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Profile.Age.SENIOR">
+<span class="sig-name descname"><span class="pre">SENIOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">4</span></em><a class="headerlink" href="#Profile.Age.SENIOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Profile.Age.TEENAGER">
+<span class="sig-name descname"><span class="pre">TEENAGER</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">3</span></em><a class="headerlink" href="#Profile.Age.TEENAGER" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Profile.Age.from_string">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_string</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Profile.Age.from_string" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="Profile.DayType">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Profile.</span></span><span class="sig-name descname"><span class="pre">DayType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Profile.DayType" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<p>An enumeration.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Profile.DayType.WEEKDAY">
+<span class="sig-name descname"><span class="pre">WEEKDAY</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#Profile.DayType.WEEKDAY" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Profile.DayType.WEEKEND">
+<span class="sig-name descname"><span class="pre">WEEKEND</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#Profile.DayType.WEEKEND" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Profile.DayType.from_string">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_string</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Profile.DayType.from_string" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="Profile.Profile">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Profile.</span></span><span class="sig-name descname"><span class="pre">Profile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">age</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#Profile.Age" title="Profile.Age"><span class="pre">Profile.Age</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">household_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">day_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#Profile.DayType" title="Profile.DayType"><span class="pre">Profile.DayType</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">ts</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial_subarea</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#Profile.Subarea" title="Profile.Subarea"><span class="pre">Profile.Subarea</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">final_subarea</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#Profile.Subarea" title="Profile.Subarea"><span class="pre">Profile.Subarea</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial_state</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#Profile.State" title="Profile.State"><span class="pre">Profile.State</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">final_state</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#Profile.State" title="Profile.State"><span class="pre">Profile.State</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">appliance_energy</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metabolic_energy</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">light_use</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">water_use</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rooms</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">finished</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Profile.Profile" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Profile.Profile.age">
+<span class="sig-name descname"><span class="pre">age</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#Profile.Age" title="Profile.Age"><span class="pre">Age</span></a></em><a class="headerlink" href="#Profile.Profile.age" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Profile.Profile.appliance_energy">
+<span class="sig-name descname"><span class="pre">appliance_energy</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#Profile.Profile.appliance_energy" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Profile.Profile.day_type">
+<span class="sig-name descname"><span class="pre">day_type</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#Profile.DayType" title="Profile.DayType"><span class="pre">DayType</span></a></em><a class="headerlink" href="#Profile.Profile.day_type" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Profile.Profile.final_state">
+<span class="sig-name descname"><span class="pre">final_state</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#Profile.State" title="Profile.State"><span class="pre">State</span></a></em><a class="headerlink" href="#Profile.Profile.final_state" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Profile.Profile.final_subarea">
+<span class="sig-name descname"><span class="pre">final_subarea</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#Profile.Subarea" title="Profile.Subarea"><span class="pre">Subarea</span></a></em><a class="headerlink" href="#Profile.Profile.final_subarea" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Profile.Profile.finished">
+<span class="sig-name descname"><span class="pre">finished</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#Profile.Profile.finished" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Profile.Profile.from_row">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_row</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">row</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Profile.Profile.from_row" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Profile.Profile.household_size">
+<span class="sig-name descname"><span class="pre">household_size</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#Profile.Profile.household_size" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Profile.Profile.initial_state">
+<span class="sig-name descname"><span class="pre">initial_state</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#Profile.State" title="Profile.State"><span class="pre">State</span></a></em><a class="headerlink" href="#Profile.Profile.initial_state" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Profile.Profile.initial_subarea">
+<span class="sig-name descname"><span class="pre">initial_subarea</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#Profile.Subarea" title="Profile.Subarea"><span class="pre">Subarea</span></a></em><a class="headerlink" href="#Profile.Profile.initial_subarea" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Profile.Profile.key">
+<span class="sig-name descname"><span class="pre">key</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Profile.Profile.key" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Profile.Profile.light_use">
+<span class="sig-name descname"><span class="pre">light_use</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#Profile.Profile.light_use" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Profile.Profile.metabolic_energy">
+<span class="sig-name descname"><span class="pre">metabolic_energy</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#Profile.Profile.metabolic_energy" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Profile.Profile.next">
+<span class="sig-name descname"><span class="pre">next</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Profile.Profile.next" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Profile.Profile.rooms">
+<span class="sig-name descname"><span class="pre">rooms</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#Profile.Profile.rooms" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Profile.Profile.ts">
+<span class="sig-name descname"><span class="pre">ts</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#Profile.Profile.ts" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Profile.Profile.water_use">
+<span class="sig-name descname"><span class="pre">water_use</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#Profile.Profile.water_use" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="Profile.State">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Profile.</span></span><span class="sig-name descname"><span class="pre">State</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Profile.State" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<p>An enumeration.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Profile.State.ASLEEP">
+<span class="sig-name descname"><span class="pre">ASLEEP</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#Profile.State.ASLEEP" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Profile.State.AWAKE">
+<span class="sig-name descname"><span class="pre">AWAKE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#Profile.State.AWAKE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Profile.State.from_string">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_string</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Profile.State.from_string" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="Profile.Subarea">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Profile.</span></span><span class="sig-name descname"><span class="pre">Subarea</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Profile.Subarea" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<p>An enumeration.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Profile.Subarea.BUS">
+<span class="sig-name descname"><span class="pre">BUS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">16</span></em><a class="headerlink" href="#Profile.Subarea.BUS" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Profile.Subarea.CULTURAL">
+<span class="sig-name descname"><span class="pre">CULTURAL</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">5</span></em><a class="headerlink" href="#Profile.Subarea.CULTURAL" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Profile.Subarea.CYCLING">
+<span class="sig-name descname"><span class="pre">CYCLING</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">19</span></em><a class="headerlink" href="#Profile.Subarea.CYCLING" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Profile.Subarea.DRIVING">
+<span class="sig-name descname"><span class="pre">DRIVING</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">20</span></em><a class="headerlink" href="#Profile.Subarea.DRIVING" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Profile.Subarea.HEALTHCARE">
+<span class="sig-name descname"><span class="pre">HEALTHCARE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">11</span></em><a class="headerlink" href="#Profile.Subarea.HEALTHCARE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Profile.Subarea.HOME">
+<span class="sig-name descname"><span class="pre">HOME</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#Profile.Subarea.HOME" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Profile.Subarea.HOSPITALITY">
+<span class="sig-name descname"><span class="pre">HOSPITALITY</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">12</span></em><a class="headerlink" href="#Profile.Subarea.HOSPITALITY" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Profile.Subarea.HOTEL">
+<span class="sig-name descname"><span class="pre">HOTEL</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">10</span></em><a class="headerlink" href="#Profile.Subarea.HOTEL" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Profile.Subarea.INDOORENT">
+<span class="sig-name descname"><span class="pre">INDOORENT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">7</span></em><a class="headerlink" href="#Profile.Subarea.INDOORENT" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Profile.Subarea.LARGESHOP">
+<span class="sig-name descname"><span class="pre">LARGESHOP</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">4</span></em><a class="headerlink" href="#Profile.Subarea.LARGESHOP" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Profile.Subarea.OUTDOOR">
+<span class="sig-name descname"><span class="pre">OUTDOOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">9</span></em><a class="headerlink" href="#Profile.Subarea.OUTDOOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Profile.Subarea.OUTDOORENT">
+<span class="sig-name descname"><span class="pre">OUTDOORENT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">8</span></em><a class="headerlink" href="#Profile.Subarea.OUTDOORENT" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Profile.Subarea.PRIMARY_SCHOOL">
+<span class="sig-name descname"><span class="pre">PRIMARY_SCHOOL</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#Profile.Subarea.PRIMARY_SCHOOL" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Profile.Subarea.SECONDARY_SCHOOL">
+<span class="sig-name descname"><span class="pre">SECONDARY_SCHOOL</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">3</span></em><a class="headerlink" href="#Profile.Subarea.SECONDARY_SCHOOL" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Profile.Subarea.SMALLSHOP">
+<span class="sig-name descname"><span class="pre">SMALLSHOP</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">13</span></em><a class="headerlink" href="#Profile.Subarea.SMALLSHOP" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Profile.Subarea.TEMPRES">
+<span class="sig-name descname"><span class="pre">TEMPRES</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">6</span></em><a class="headerlink" href="#Profile.Subarea.TEMPRES" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Profile.Subarea.TRAIN">
+<span class="sig-name descname"><span class="pre">TRAIN</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">18</span></em><a class="headerlink" href="#Profile.Subarea.TRAIN" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Profile.Subarea.TUBE">
+<span class="sig-name descname"><span class="pre">TUBE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">17</span></em><a class="headerlink" href="#Profile.Subarea.TUBE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Profile.Subarea.UNIVERSITY">
+<span class="sig-name descname"><span class="pre">UNIVERSITY</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">14</span></em><a class="headerlink" href="#Profile.Subarea.UNIVERSITY" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Profile.Subarea.WAIT">
+<span class="sig-name descname"><span class="pre">WAIT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">21</span></em><a class="headerlink" href="#Profile.Subarea.WAIT" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Profile.Subarea.WALKING">
+<span class="sig-name descname"><span class="pre">WALKING</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">15</span></em><a class="headerlink" href="#Profile.Subarea.WALKING" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Profile.Subarea.WORK">
+<span class="sig-name descname"><span class="pre">WORK</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#Profile.Subarea.WORK" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Profile.Subarea.from_string">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_string</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Profile.Subarea.from_string" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Nhood.html" class="btn btn-neutral float-left" title="Nhood module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="STEBBS.html" class="btn btn-neutral float-right" title="STEBBS module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Megan McGrory.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

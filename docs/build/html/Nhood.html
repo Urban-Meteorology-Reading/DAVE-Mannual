@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nhood module &mdash; DAVE  documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Profile module" href="Profile.html" />
+    <link rel="prev" title="Movement module" href="Movement.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            DAVE
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Citizen.html">Citizen module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EnergyCalc.html">EnergyCalc module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Initialise.html">Initialise module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Initialise_nhoods.html">Initialise_nhoods module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Main_run.html">Main_run module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Movement.html">Movement module</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Nhood module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Nhood.BuildingArchetype"><code class="docutils literal notranslate"><span class="pre">BuildingArchetype</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Nhood.BuildingArchetype.building"><code class="docutils literal notranslate"><span class="pre">BuildingArchetype.building</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Nhood.BuildingArchetype.households"><code class="docutils literal notranslate"><span class="pre">BuildingArchetype.households</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Nhood.BuildingArchetype.name"><code class="docutils literal notranslate"><span class="pre">BuildingArchetype.name</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#Nhood.Nhood"><code class="docutils literal notranslate"><span class="pre">Nhood</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Nhood.Nhood.commercial_buildings"><code class="docutils literal notranslate"><span class="pre">Nhood.commercial_buildings</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Nhood.Nhood.domestic_buildings"><code class="docutils literal notranslate"><span class="pre">Nhood.domestic_buildings</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Nhood.Nhood.from_grid_file"><code class="docutils literal notranslate"><span class="pre">Nhood.from_grid_file()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Nhood.Nhood.gravity_weights"><code class="docutils literal notranslate"><span class="pre">Nhood.gravity_weights</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Nhood.Nhood.household_sizes"><code class="docutils literal notranslate"><span class="pre">Nhood.household_sizes</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Nhood.Nhood.households"><code class="docutils literal notranslate"><span class="pre">Nhood.households</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Nhood.Nhood.industrial_modifiers"><code class="docutils literal notranslate"><span class="pre">Nhood.industrial_modifiers</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Nhood.Nhood.name"><code class="docutils literal notranslate"><span class="pre">Nhood.name</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Nhood.Nhood.nhood_area"><code class="docutils literal notranslate"><span class="pre">Nhood.nhood_area</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Nhood.Nhood.primary_pop"><code class="docutils literal notranslate"><span class="pre">Nhood.primary_pop</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Nhood.Nhood.reset_subarea_populations"><code class="docutils literal notranslate"><span class="pre">Nhood.reset_subarea_populations()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Nhood.Nhood.secondary_pop"><code class="docutils literal notranslate"><span class="pre">Nhood.secondary_pop</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Nhood.Nhood.select_grid_for_subarea"><code class="docutils literal notranslate"><span class="pre">Nhood.select_grid_for_subarea()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Nhood.Nhood.shop_pop"><code class="docutils literal notranslate"><span class="pre">Nhood.shop_pop</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Nhood.Nhood.sso_areas"><code class="docutils literal notranslate"><span class="pre">Nhood.sso_areas</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Nhood.Nhood.subarea_pops"><code class="docutils literal notranslate"><span class="pre">Nhood.subarea_pops</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Nhood.Nhood.work_pop"><code class="docutils literal notranslate"><span class="pre">Nhood.work_pop</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#Nhood.SSO"><code class="docutils literal notranslate"><span class="pre">SSO</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Nhood.SSO.CULTURAL"><code class="docutils literal notranslate"><span class="pre">SSO.CULTURAL</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Nhood.SSO.HIGHENT"><code class="docutils literal notranslate"><span class="pre">SSO.HIGHENT</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Nhood.SSO.HIGHST"><code class="docutils literal notranslate"><span class="pre">SSO.HIGHST</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Nhood.SSO.HOSPITAL"><code class="docutils literal notranslate"><span class="pre">SSO.HOSPITAL</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Nhood.SSO.LOWSHOPS"><code class="docutils literal notranslate"><span class="pre">SSO.LOWSHOPS</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Nhood.SSO.OTHERMID"><code class="docutils literal notranslate"><span class="pre">SSO.OTHERMID</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Nhood.SSO.RESTAURANT"><code class="docutils literal notranslate"><span class="pre">SSO.RESTAURANT</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Nhood.SSO.SCHOOL"><code class="docutils literal notranslate"><span class="pre">SSO.SCHOOL</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Nhood.SSO.SUPERMARKET"><code class="docutils literal notranslate"><span class="pre">SSO.SUPERMARKET</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Nhood.SSO.UNIVERSITY"><code class="docutils literal notranslate"><span class="pre">SSO.UNIVERSITY</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Nhood.SSO.ZERO"><code class="docutils literal notranslate"><span class="pre">SSO.ZERO</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Nhood.SSO.from_string"><code class="docutils literal notranslate"><span class="pre">SSO.from_string()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Profile.html">Profile module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="STEBBS.html">STEBBS module</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">DAVE</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Nhood module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/Nhood.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-Nhood">
+<span id="nhood-module"></span><h1>Nhood module<a class="headerlink" href="#module-Nhood" title="Link to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="Nhood.BuildingArchetype">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Nhood.</span></span><span class="sig-name descname"><span class="pre">BuildingArchetype</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">building</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="STEBBS.html#STEBBS.LBM" title="STEBBS.LBM"><span class="pre">LBM</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">households</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Nhood.BuildingArchetype" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>An object holding attributes of building archetypes</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Nhood.BuildingArchetype.building">
+<span class="sig-name descname"><span class="pre">building</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="STEBBS.html#STEBBS.LBM" title="STEBBS.LBM"><span class="pre">LBM</span></a></em><a class="headerlink" href="#Nhood.BuildingArchetype.building" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Nhood.BuildingArchetype.households">
+<span class="sig-name descname"><span class="pre">households</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span></em><a class="headerlink" href="#Nhood.BuildingArchetype.households" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Nhood.BuildingArchetype.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#Nhood.BuildingArchetype.name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="Nhood.Nhood">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Nhood.</span></span><span class="sig-name descname"><span class="pre">Nhood</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">household_sizes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">work_pop</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shop_pop</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">primary_pop</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">secondary_pop</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nhood_area</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sso_areas</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#Nhood.SSO" title="Nhood.SSO"><span class="pre">SSO</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">industrial_modifiers</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gravity_weights</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="Profile.html#Profile.Subarea" title="Profile.Subarea"><span class="pre">Subarea</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subarea_pops</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="Profile.html#Profile.Subarea" title="Profile.Subarea"><span class="pre">Subarea</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">domestic_buildings</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">commercial_buildings</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">households</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Nhood.Nhood" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>An object holding data for a neighbourhood (AN) and its subareas:
+domestic, workplace, primary school, secondary school, shops and
+other.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Nhood.Nhood.commercial_buildings">
+<span class="sig-name descname"><span class="pre">commercial_buildings</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span></em><a class="headerlink" href="#Nhood.Nhood.commercial_buildings" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Nhood.Nhood.domestic_buildings">
+<span class="sig-name descname"><span class="pre">domestic_buildings</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span></em><a class="headerlink" href="#Nhood.Nhood.domestic_buildings" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Nhood.Nhood.from_grid_file">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_grid_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">grid_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gravity_weights</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Nhood.Nhood.from_grid_file" title="Link to this definition"></a></dt>
+<dd><p>Create Nhood object from file.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Nhood.Nhood.gravity_weights">
+<span class="sig-name descname"><span class="pre">gravity_weights</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="Profile.html#Profile.Subarea" title="Profile.Subarea"><span class="pre">Subarea</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#Nhood.Nhood.gravity_weights" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Nhood.Nhood.household_sizes">
+<span class="sig-name descname"><span class="pre">household_sizes</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#Nhood.Nhood.household_sizes" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Nhood.Nhood.households">
+<span class="sig-name descname"><span class="pre">households</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span></em><a class="headerlink" href="#Nhood.Nhood.households" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Nhood.Nhood.industrial_modifiers">
+<span class="sig-name descname"><span class="pre">industrial_modifiers</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#Nhood.Nhood.industrial_modifiers" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Nhood.Nhood.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#Nhood.Nhood.name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Nhood.Nhood.nhood_area">
+<span class="sig-name descname"><span class="pre">nhood_area</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#Nhood.Nhood.nhood_area" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Nhood.Nhood.primary_pop">
+<span class="sig-name descname"><span class="pre">primary_pop</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#Nhood.Nhood.primary_pop" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Nhood.Nhood.reset_subarea_populations">
+<span class="sig-name descname"><span class="pre">reset_subarea_populations</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Nhood.Nhood.reset_subarea_populations" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Nhood.Nhood.secondary_pop">
+<span class="sig-name descname"><span class="pre">secondary_pop</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#Nhood.Nhood.secondary_pop" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Nhood.Nhood.select_grid_for_subarea">
+<span class="sig-name descname"><span class="pre">select_grid_for_subarea</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subarea</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Nhood.Nhood.select_grid_for_subarea" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Nhood.Nhood.shop_pop">
+<span class="sig-name descname"><span class="pre">shop_pop</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#Nhood.Nhood.shop_pop" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Nhood.Nhood.sso_areas">
+<span class="sig-name descname"><span class="pre">sso_areas</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#Nhood.SSO" title="Nhood.SSO"><span class="pre">SSO</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#Nhood.Nhood.sso_areas" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Nhood.Nhood.subarea_pops">
+<span class="sig-name descname"><span class="pre">subarea_pops</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="Profile.html#Profile.Subarea" title="Profile.Subarea"><span class="pre">Subarea</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#Nhood.Nhood.subarea_pops" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Nhood.Nhood.work_pop">
+<span class="sig-name descname"><span class="pre">work_pop</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#Nhood.Nhood.work_pop" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="Nhood.SSO">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Nhood.</span></span><span class="sig-name descname"><span class="pre">SSO</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Nhood.SSO" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<p>An enumeration.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Nhood.SSO.CULTURAL">
+<span class="sig-name descname"><span class="pre">CULTURAL</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#Nhood.SSO.CULTURAL" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Nhood.SSO.HIGHENT">
+<span class="sig-name descname"><span class="pre">HIGHENT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#Nhood.SSO.HIGHENT" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Nhood.SSO.HIGHST">
+<span class="sig-name descname"><span class="pre">HIGHST</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">3</span></em><a class="headerlink" href="#Nhood.SSO.HIGHST" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Nhood.SSO.HOSPITAL">
+<span class="sig-name descname"><span class="pre">HOSPITAL</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">4</span></em><a class="headerlink" href="#Nhood.SSO.HOSPITAL" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Nhood.SSO.LOWSHOPS">
+<span class="sig-name descname"><span class="pre">LOWSHOPS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">5</span></em><a class="headerlink" href="#Nhood.SSO.LOWSHOPS" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Nhood.SSO.OTHERMID">
+<span class="sig-name descname"><span class="pre">OTHERMID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">6</span></em><a class="headerlink" href="#Nhood.SSO.OTHERMID" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Nhood.SSO.RESTAURANT">
+<span class="sig-name descname"><span class="pre">RESTAURANT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">7</span></em><a class="headerlink" href="#Nhood.SSO.RESTAURANT" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Nhood.SSO.SCHOOL">
+<span class="sig-name descname"><span class="pre">SCHOOL</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">8</span></em><a class="headerlink" href="#Nhood.SSO.SCHOOL" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Nhood.SSO.SUPERMARKET">
+<span class="sig-name descname"><span class="pre">SUPERMARKET</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">9</span></em><a class="headerlink" href="#Nhood.SSO.SUPERMARKET" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Nhood.SSO.UNIVERSITY">
+<span class="sig-name descname"><span class="pre">UNIVERSITY</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">10</span></em><a class="headerlink" href="#Nhood.SSO.UNIVERSITY" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Nhood.SSO.ZERO">
+<span class="sig-name descname"><span class="pre">ZERO</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">11</span></em><a class="headerlink" href="#Nhood.SSO.ZERO" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Nhood.SSO.from_string">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_string</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Nhood.SSO.from_string" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Movement.html" class="btn btn-neutral float-left" title="Movement module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Profile.html" class="btn btn-neutral float-right" title="Profile module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Megan McGrory.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BIG DAVE &mdash; DAVE  documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Citizen module" href="Citizen.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="#" class="icon icon-home">
+            DAVE
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="Citizen.html">Citizen module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EnergyCalc.html">EnergyCalc module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Initialise.html">Initialise module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Initialise_nhoods.html">Initialise_nhoods module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Main_run.html">Main_run module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Movement.html">Movement module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Nhood.html">Nhood module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Profile.html">Profile module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="STEBBS.html">STEBBS module</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">DAVE</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="#" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">BIG DAVE</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="big-dave">
+<h1>BIG DAVE<a class="headerlink" href="#big-dave" title="Link to this heading"></a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Citizen.html">Citizen module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Citizen.html#Citizen.Citizen"><code class="docutils literal notranslate"><span class="pre">Citizen</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Citizen.html#Citizen.Citizen.add_to_dict"><code class="docutils literal notranslate"><span class="pre">Citizen.add_to_dict()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Citizen.html#Citizen.Citizen.age_group"><code class="docutils literal notranslate"><span class="pre">Citizen.age_group</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Citizen.html#Citizen.Citizen.archetype"><code class="docutils literal notranslate"><span class="pre">Citizen.archetype</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Citizen.html#Citizen.Citizen.commute_mode_index"><code class="docutils literal notranslate"><span class="pre">Citizen.commute_mode_index</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Citizen.html#Citizen.Citizen.create_new_destination"><code class="docutils literal notranslate"><span class="pre">Citizen.create_new_destination()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Citizen.html#Citizen.Citizen.current_grid"><code class="docutils literal notranslate"><span class="pre">Citizen.current_grid</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Citizen.html#Citizen.Citizen.current_route"><code class="docutils literal notranslate"><span class="pre">Citizen.current_route</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Citizen.html#Citizen.Citizen.daytype"><code class="docutils literal notranslate"><span class="pre">Citizen.daytype</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Citizen.html#Citizen.Citizen.from_row"><code class="docutils literal notranslate"><span class="pre">Citizen.from_row()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Citizen.html#Citizen.Citizen.get_household_members"><code class="docutils literal notranslate"><span class="pre">Citizen.get_household_members()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Citizen.html#Citizen.Citizen.hh_members_in_same_room"><code class="docutils literal notranslate"><span class="pre">Citizen.hh_members_in_same_room()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Citizen.html#Citizen.Citizen.home"><code class="docutils literal notranslate"><span class="pre">Citizen.home</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Citizen.html#Citizen.Citizen.household_id"><code class="docutils literal notranslate"><span class="pre">Citizen.household_id</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Citizen.html#Citizen.Citizen.household_num"><code class="docutils literal notranslate"><span class="pre">Citizen.household_num</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Citizen.html#Citizen.Citizen.household_size"><code class="docutils literal notranslate"><span class="pre">Citizen.household_size</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Citizen.html#Citizen.Citizen.increase_subarea_total"><code class="docutils literal notranslate"><span class="pre">Citizen.increase_subarea_total()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Citizen.html#Citizen.Citizen.movement"><code class="docutils literal notranslate"><span class="pre">Citizen.movement</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Citizen.html#Citizen.Citizen.next"><code class="docutils literal notranslate"><span class="pre">Citizen.next()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Citizen.html#Citizen.Citizen.occupant_num"><code class="docutils literal notranslate"><span class="pre">Citizen.occupant_num</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Citizen.html#Citizen.Citizen.outside_test_area"><code class="docutils literal notranslate"><span class="pre">Citizen.outside_test_area</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Citizen.html#Citizen.Citizen.profile"><code class="docutils literal notranslate"><span class="pre">Citizen.profile</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Citizen.html#Citizen.Citizen.school_grid"><code class="docutils literal notranslate"><span class="pre">Citizen.school_grid</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Citizen.html#Citizen.Citizen.select_profile"><code class="docutils literal notranslate"><span class="pre">Citizen.select_profile()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Citizen.html#Citizen.Citizen.state"><code class="docutils literal notranslate"><span class="pre">Citizen.state</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Citizen.html#Citizen.Citizen.subarea"><code class="docutils literal notranslate"><span class="pre">Citizen.subarea</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Citizen.html#Citizen.Citizen.work_grid"><code class="docutils literal notranslate"><span class="pre">Citizen.work_grid</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="EnergyCalc.html">EnergyCalc module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="EnergyCalc.html#EnergyCalc.QF_simple"><code class="docutils literal notranslate"><span class="pre">QF_simple()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="EnergyCalc.html#EnergyCalc.alter_dom_set_points"><code class="docutils literal notranslate"><span class="pre">alter_dom_set_points()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="EnergyCalc.html#EnergyCalc.alter_heating_HDD"><code class="docutils literal notranslate"><span class="pre">alter_heating_HDD()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="EnergyCalc.html#EnergyCalc.ext_conv_coeff"><code class="docutils literal notranslate"><span class="pre">ext_conv_coeff()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="EnergyCalc.html#EnergyCalc.feed_dom_energy"><code class="docutils literal notranslate"><span class="pre">feed_dom_energy()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="EnergyCalc.html#EnergyCalc.floor_plan"><code class="docutils literal notranslate"><span class="pre">floor_plan()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="EnergyCalc.html#EnergyCalc.forcing_SUEWS"><code class="docutils literal notranslate"><span class="pre">forcing_SUEWS()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="EnergyCalc.html#EnergyCalc.run_SUEWS_ts"><code class="docutils literal notranslate"><span class="pre">run_SUEWS_ts()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Initialise.html">Initialise module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Initialise.html#Initialise.Grid"><code class="docutils literal notranslate"><span class="pre">Grid</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Initialise.html#Initialise.Journey"><code class="docutils literal notranslate"><span class="pre">Journey</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Initialise.html#Initialise.assign_all_school_work_places"><code class="docutils literal notranslate"><span class="pre">assign_all_school_work_places()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Initialise.html#Initialise.assign_school_work_place"><code class="docutils literal notranslate"><span class="pre">assign_school_work_place()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Initialise.html#Initialise.create_all_citizens"><code class="docutils literal notranslate"><span class="pre">create_all_citizens()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Initialise.html#Initialise.create_all_profiles"><code class="docutils literal notranslate"><span class="pre">create_all_profiles()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Initialise.html#Initialise.relative_path_to_absolute_path"><code class="docutils literal notranslate"><span class="pre">relative_path_to_absolute_path()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Initialise_nhoods.html">Initialise_nhoods module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Initialise_nhoods.html#Initialise_nhoods.assign_households"><code class="docutils literal notranslate"><span class="pre">assign_households()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Initialise_nhoods.html#Initialise_nhoods.create_all_nhoods"><code class="docutils literal notranslate"><span class="pre">create_all_nhoods()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Initialise_nhoods.html#Initialise_nhoods.order_files"><code class="docutils literal notranslate"><span class="pre">order_files()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Initialise_nhoods.html#Initialise_nhoods.relative_path_to_absolute_path"><code class="docutils literal notranslate"><span class="pre">relative_path_to_absolute_path()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Main_run.html">Main_run module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Movement.html">Movement module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Movement.html#Movement.Movement"><code class="docutils literal notranslate"><span class="pre">Movement</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Movement.html#Movement.Movement.choose_mode"><code class="docutils literal notranslate"><span class="pre">Movement.choose_mode()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Movement.html#Movement.Movement.find_route"><code class="docutils literal notranslate"><span class="pre">Movement.find_route()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Movement.html#Movement.Movement.get_capacities"><code class="docutils literal notranslate"><span class="pre">Movement.get_capacities()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Movement.html#Movement.Movement.get_capacity"><code class="docutils literal notranslate"><span class="pre">Movement.get_capacity()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Movement.html#Movement.Movement.get_mode_users"><code class="docutils literal notranslate"><span class="pre">Movement.get_mode_users()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Movement.html#Movement.Movement.grids_in_ts"><code class="docutils literal notranslate"><span class="pre">Movement.grids_in_ts()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Movement.html#Movement.Movement.grids_travelled_through"><code class="docutils literal notranslate"><span class="pre">Movement.grids_travelled_through()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Movement.html#Movement.Movement.next"><code class="docutils literal notranslate"><span class="pre">Movement.next()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Movement.html#Movement.load_saved_graph"><code class="docutils literal notranslate"><span class="pre">load_saved_graph()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Movement.html#Movement.relative_path_to_absolute_path"><code class="docutils literal notranslate"><span class="pre">relative_path_to_absolute_path()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Nhood.html">Nhood module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Nhood.html#Nhood.BuildingArchetype"><code class="docutils literal notranslate"><span class="pre">BuildingArchetype</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Nhood.html#Nhood.BuildingArchetype.building"><code class="docutils literal notranslate"><span class="pre">BuildingArchetype.building</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Nhood.html#Nhood.BuildingArchetype.households"><code class="docutils literal notranslate"><span class="pre">BuildingArchetype.households</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Nhood.html#Nhood.BuildingArchetype.name"><code class="docutils literal notranslate"><span class="pre">BuildingArchetype.name</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Nhood.html#Nhood.Nhood"><code class="docutils literal notranslate"><span class="pre">Nhood</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Nhood.html#Nhood.Nhood.commercial_buildings"><code class="docutils literal notranslate"><span class="pre">Nhood.commercial_buildings</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Nhood.html#Nhood.Nhood.domestic_buildings"><code class="docutils literal notranslate"><span class="pre">Nhood.domestic_buildings</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Nhood.html#Nhood.Nhood.from_grid_file"><code class="docutils literal notranslate"><span class="pre">Nhood.from_grid_file()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Nhood.html#Nhood.Nhood.gravity_weights"><code class="docutils literal notranslate"><span class="pre">Nhood.gravity_weights</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Nhood.html#Nhood.Nhood.household_sizes"><code class="docutils literal notranslate"><span class="pre">Nhood.household_sizes</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Nhood.html#Nhood.Nhood.households"><code class="docutils literal notranslate"><span class="pre">Nhood.households</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Nhood.html#Nhood.Nhood.industrial_modifiers"><code class="docutils literal notranslate"><span class="pre">Nhood.industrial_modifiers</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Nhood.html#Nhood.Nhood.name"><code class="docutils literal notranslate"><span class="pre">Nhood.name</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Nhood.html#Nhood.Nhood.nhood_area"><code class="docutils literal notranslate"><span class="pre">Nhood.nhood_area</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Nhood.html#Nhood.Nhood.primary_pop"><code class="docutils literal notranslate"><span class="pre">Nhood.primary_pop</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Nhood.html#Nhood.Nhood.reset_subarea_populations"><code class="docutils literal notranslate"><span class="pre">Nhood.reset_subarea_populations()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Nhood.html#Nhood.Nhood.secondary_pop"><code class="docutils literal notranslate"><span class="pre">Nhood.secondary_pop</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Nhood.html#Nhood.Nhood.select_grid_for_subarea"><code class="docutils literal notranslate"><span class="pre">Nhood.select_grid_for_subarea()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Nhood.html#Nhood.Nhood.shop_pop"><code class="docutils literal notranslate"><span class="pre">Nhood.shop_pop</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Nhood.html#Nhood.Nhood.sso_areas"><code class="docutils literal notranslate"><span class="pre">Nhood.sso_areas</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Nhood.html#Nhood.Nhood.subarea_pops"><code class="docutils literal notranslate"><span class="pre">Nhood.subarea_pops</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Nhood.html#Nhood.Nhood.work_pop"><code class="docutils literal notranslate"><span class="pre">Nhood.work_pop</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Nhood.html#Nhood.SSO"><code class="docutils literal notranslate"><span class="pre">SSO</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Nhood.html#Nhood.SSO.CULTURAL"><code class="docutils literal notranslate"><span class="pre">SSO.CULTURAL</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Nhood.html#Nhood.SSO.HIGHENT"><code class="docutils literal notranslate"><span class="pre">SSO.HIGHENT</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Nhood.html#Nhood.SSO.HIGHST"><code class="docutils literal notranslate"><span class="pre">SSO.HIGHST</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Nhood.html#Nhood.SSO.HOSPITAL"><code class="docutils literal notranslate"><span class="pre">SSO.HOSPITAL</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Nhood.html#Nhood.SSO.LOWSHOPS"><code class="docutils literal notranslate"><span class="pre">SSO.LOWSHOPS</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Nhood.html#Nhood.SSO.OTHERMID"><code class="docutils literal notranslate"><span class="pre">SSO.OTHERMID</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Nhood.html#Nhood.SSO.RESTAURANT"><code class="docutils literal notranslate"><span class="pre">SSO.RESTAURANT</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Nhood.html#Nhood.SSO.SCHOOL"><code class="docutils literal notranslate"><span class="pre">SSO.SCHOOL</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Nhood.html#Nhood.SSO.SUPERMARKET"><code class="docutils literal notranslate"><span class="pre">SSO.SUPERMARKET</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Nhood.html#Nhood.SSO.UNIVERSITY"><code class="docutils literal notranslate"><span class="pre">SSO.UNIVERSITY</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Nhood.html#Nhood.SSO.ZERO"><code class="docutils literal notranslate"><span class="pre">SSO.ZERO</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Nhood.html#Nhood.SSO.from_string"><code class="docutils literal notranslate"><span class="pre">SSO.from_string()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Profile.html">Profile module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Profile.html#Profile.Age"><code class="docutils literal notranslate"><span class="pre">Age</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Profile.html#Profile.Age.ADULT"><code class="docutils literal notranslate"><span class="pre">Age.ADULT</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Profile.html#Profile.Age.CHILD"><code class="docutils literal notranslate"><span class="pre">Age.CHILD</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Profile.html#Profile.Age.INFANT"><code class="docutils literal notranslate"><span class="pre">Age.INFANT</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Profile.html#Profile.Age.SENIOR"><code class="docutils literal notranslate"><span class="pre">Age.SENIOR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Profile.html#Profile.Age.TEENAGER"><code class="docutils literal notranslate"><span class="pre">Age.TEENAGER</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Profile.html#Profile.Age.from_string"><code class="docutils literal notranslate"><span class="pre">Age.from_string()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Profile.html#Profile.DayType"><code class="docutils literal notranslate"><span class="pre">DayType</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Profile.html#Profile.DayType.WEEKDAY"><code class="docutils literal notranslate"><span class="pre">DayType.WEEKDAY</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Profile.html#Profile.DayType.WEEKEND"><code class="docutils literal notranslate"><span class="pre">DayType.WEEKEND</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Profile.html#Profile.DayType.from_string"><code class="docutils literal notranslate"><span class="pre">DayType.from_string()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Profile.html#Profile.Profile"><code class="docutils literal notranslate"><span class="pre">Profile</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Profile.html#Profile.Profile.age"><code class="docutils literal notranslate"><span class="pre">Profile.age</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Profile.html#Profile.Profile.appliance_energy"><code class="docutils literal notranslate"><span class="pre">Profile.appliance_energy</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Profile.html#Profile.Profile.day_type"><code class="docutils literal notranslate"><span class="pre">Profile.day_type</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Profile.html#Profile.Profile.final_state"><code class="docutils literal notranslate"><span class="pre">Profile.final_state</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Profile.html#Profile.Profile.final_subarea"><code class="docutils literal notranslate"><span class="pre">Profile.final_subarea</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Profile.html#Profile.Profile.finished"><code class="docutils literal notranslate"><span class="pre">Profile.finished</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Profile.html#Profile.Profile.from_row"><code class="docutils literal notranslate"><span class="pre">Profile.from_row()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Profile.html#Profile.Profile.household_size"><code class="docutils literal notranslate"><span class="pre">Profile.household_size</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Profile.html#Profile.Profile.initial_state"><code class="docutils literal notranslate"><span class="pre">Profile.initial_state</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Profile.html#Profile.Profile.initial_subarea"><code class="docutils literal notranslate"><span class="pre">Profile.initial_subarea</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Profile.html#Profile.Profile.key"><code class="docutils literal notranslate"><span class="pre">Profile.key()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Profile.html#Profile.Profile.light_use"><code class="docutils literal notranslate"><span class="pre">Profile.light_use</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Profile.html#Profile.Profile.metabolic_energy"><code class="docutils literal notranslate"><span class="pre">Profile.metabolic_energy</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Profile.html#Profile.Profile.next"><code class="docutils literal notranslate"><span class="pre">Profile.next()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Profile.html#Profile.Profile.rooms"><code class="docutils literal notranslate"><span class="pre">Profile.rooms</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Profile.html#Profile.Profile.ts"><code class="docutils literal notranslate"><span class="pre">Profile.ts</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Profile.html#Profile.Profile.water_use"><code class="docutils literal notranslate"><span class="pre">Profile.water_use</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Profile.html#Profile.State"><code class="docutils literal notranslate"><span class="pre">State</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Profile.html#Profile.State.ASLEEP"><code class="docutils literal notranslate"><span class="pre">State.ASLEEP</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Profile.html#Profile.State.AWAKE"><code class="docutils literal notranslate"><span class="pre">State.AWAKE</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Profile.html#Profile.State.from_string"><code class="docutils literal notranslate"><span class="pre">State.from_string()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Profile.html#Profile.Subarea"><code class="docutils literal notranslate"><span class="pre">Subarea</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Profile.html#Profile.Subarea.BUS"><code class="docutils literal notranslate"><span class="pre">Subarea.BUS</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Profile.html#Profile.Subarea.CULTURAL"><code class="docutils literal notranslate"><span class="pre">Subarea.CULTURAL</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Profile.html#Profile.Subarea.CYCLING"><code class="docutils literal notranslate"><span class="pre">Subarea.CYCLING</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Profile.html#Profile.Subarea.DRIVING"><code class="docutils literal notranslate"><span class="pre">Subarea.DRIVING</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Profile.html#Profile.Subarea.HEALTHCARE"><code class="docutils literal notranslate"><span class="pre">Subarea.HEALTHCARE</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Profile.html#Profile.Subarea.HOME"><code class="docutils literal notranslate"><span class="pre">Subarea.HOME</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Profile.html#Profile.Subarea.HOSPITALITY"><code class="docutils literal notranslate"><span class="pre">Subarea.HOSPITALITY</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Profile.html#Profile.Subarea.HOTEL"><code class="docutils literal notranslate"><span class="pre">Subarea.HOTEL</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Profile.html#Profile.Subarea.INDOORENT"><code class="docutils literal notranslate"><span class="pre">Subarea.INDOORENT</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Profile.html#Profile.Subarea.LARGESHOP"><code class="docutils literal notranslate"><span class="pre">Subarea.LARGESHOP</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Profile.html#Profile.Subarea.OUTDOOR"><code class="docutils literal notranslate"><span class="pre">Subarea.OUTDOOR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Profile.html#Profile.Subarea.OUTDOORENT"><code class="docutils literal notranslate"><span class="pre">Subarea.OUTDOORENT</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Profile.html#Profile.Subarea.PRIMARY_SCHOOL"><code class="docutils literal notranslate"><span class="pre">Subarea.PRIMARY_SCHOOL</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Profile.html#Profile.Subarea.SECONDARY_SCHOOL"><code class="docutils literal notranslate"><span class="pre">Subarea.SECONDARY_SCHOOL</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Profile.html#Profile.Subarea.SMALLSHOP"><code class="docutils literal notranslate"><span class="pre">Subarea.SMALLSHOP</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Profile.html#Profile.Subarea.TEMPRES"><code class="docutils literal notranslate"><span class="pre">Subarea.TEMPRES</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Profile.html#Profile.Subarea.TRAIN"><code class="docutils literal notranslate"><span class="pre">Subarea.TRAIN</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Profile.html#Profile.Subarea.TUBE"><code class="docutils literal notranslate"><span class="pre">Subarea.TUBE</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Profile.html#Profile.Subarea.UNIVERSITY"><code class="docutils literal notranslate"><span class="pre">Subarea.UNIVERSITY</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Profile.html#Profile.Subarea.WAIT"><code class="docutils literal notranslate"><span class="pre">Subarea.WAIT</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Profile.html#Profile.Subarea.WALKING"><code class="docutils literal notranslate"><span class="pre">Subarea.WALKING</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Profile.html#Profile.Subarea.WORK"><code class="docutils literal notranslate"><span class="pre">Subarea.WORK</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Profile.html#Profile.Subarea.from_string"><code class="docutils literal notranslate"><span class="pre">Subarea.from_string()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="STEBBS.html">STEBBS module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="STEBBS.html#STEBBS.LBM"><code class="docutils literal notranslate"><span class="pre">LBM</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="STEBBS.html#STEBBS.LBM.HWflowrate_change"><code class="docutils literal notranslate"><span class="pre">LBM.HWflowrate_change()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="STEBBS.html#STEBBS.LBM.additionalSystemCoolingEnergy"><code class="docutils literal notranslate"><span class="pre">LBM.additionalSystemCoolingEnergy()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="STEBBS.html#STEBBS.LBM.additionalSystemHeatingEnergy"><code class="docutils literal notranslate"><span class="pre">LBM.additionalSystemHeatingEnergy()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="STEBBS.html#STEBBS.LBM.cooling"><code class="docutils literal notranslate"><span class="pre">LBM.cooling()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="STEBBS.html#STEBBS.LBM.getAll"><code class="docutils literal notranslate"><span class="pre">LBM.getAll()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="STEBBS.html#STEBBS.LBM.getAllDHW"><code class="docutils literal notranslate"><span class="pre">LBM.getAllDHW()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="STEBBS.html#STEBBS.LBM.getHTsAverage"><code class="docutils literal notranslate"><span class="pre">LBM.getHTsAverage()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="STEBBS.html#STEBBS.LBM.getHWTsAverage"><code class="docutils literal notranslate"><span class="pre">LBM.getHWTsAverage()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="STEBBS.html#STEBBS.LBM.getIndoorAirTemperature"><code class="docutils literal notranslate"><span class="pre">LBM.getIndoorAirTemperature()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="STEBBS.html#STEBBS.LBM.getIndoorFloorTemperature"><code class="docutils literal notranslate"><span class="pre">LBM.getIndoorFloorTemperature()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="STEBBS.html#STEBBS.LBM.getIndoorMassTemperature"><code class="docutils literal notranslate"><span class="pre">LBM.getIndoorMassTemperature()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="STEBBS.html#STEBBS.LBM.getIndoorWallTemperature"><code class="docutils literal notranslate"><span class="pre">LBM.getIndoorWallTemperature()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="STEBBS.html#STEBBS.LBM.getIndoorWindowTemperature"><code class="docutils literal notranslate"><span class="pre">LBM.getIndoorWindowTemperature()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="STEBBS.html#STEBBS.LBM.getOutdoorFloorTemperature"><code class="docutils literal notranslate"><span class="pre">LBM.getOutdoorFloorTemperature()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="STEBBS.html#STEBBS.LBM.getOutdoorWallTemperature"><code class="docutils literal notranslate"><span class="pre">LBM.getOutdoorWallTemperature()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="STEBBS.html#STEBBS.LBM.getOutdoorWindowTemperature"><code class="docutils literal notranslate"><span class="pre">LBM.getOutdoorWindowTemperature()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="STEBBS.html#STEBBS.LBM.getTimestepEnergyExchanges"><code class="docutils literal notranslate"><span class="pre">LBM.getTimestepEnergyExchanges()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="STEBBS.html#STEBBS.LBM.heating"><code class="docutils literal notranslate"><span class="pre">LBM.heating()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="STEBBS.html#STEBBS.LBM.indoorConvectionHeatTransfer"><code class="docutils literal notranslate"><span class="pre">LBM.indoorConvectionHeatTransfer()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="STEBBS.html#STEBBS.LBM.indoorRadiativeHeatTransfer"><code class="docutils literal notranslate"><span class="pre">LBM.indoorRadiativeHeatTransfer()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="STEBBS.html#STEBBS.LBM.internalApplianceGains"><code class="docutils literal notranslate"><span class="pre">LBM.internalApplianceGains()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="STEBBS.html#STEBBS.LBM.internalConvectionHeatTransfer"><code class="docutils literal notranslate"><span class="pre">LBM.internalConvectionHeatTransfer()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="STEBBS.html#STEBBS.LBM.internalOccupancyGains"><code class="docutils literal notranslate"><span class="pre">LBM.internalOccupancyGains()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="STEBBS.html#STEBBS.LBM.outdoorConvectionHeatTransfer"><code class="docutils literal notranslate"><span class="pre">LBM.outdoorConvectionHeatTransfer()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="STEBBS.html#STEBBS.LBM.outdoorRadiativeHeatTransfer"><code class="docutils literal notranslate"><span class="pre">LBM.outdoorRadiativeHeatTransfer()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="STEBBS.html#STEBBS.LBM.reinitialiseHC"><code class="docutils literal notranslate"><span class="pre">LBM.reinitialiseHC()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="STEBBS.html#STEBBS.LBM.reinitialiseTemperatures"><code class="docutils literal notranslate"><span class="pre">LBM.reinitialiseTemperatures()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="STEBBS.html#STEBBS.LBM.setAirAndMassVolume"><code class="docutils literal notranslate"><span class="pre">LBM.setAirAndMassVolume()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="STEBBS.html#STEBBS.LBM.setApplianceData"><code class="docutils literal notranslate"><span class="pre">LBM.setApplianceData()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="STEBBS.html#STEBBS.LBM.setConvectionCoefficients"><code class="docutils literal notranslate"><span class="pre">LBM.setConvectionCoefficients()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="STEBBS.html#STEBBS.LBM.setCoolingSystem"><code class="docutils literal notranslate"><span class="pre">LBM.setCoolingSystem()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="STEBBS.html#STEBBS.LBM.setDHWDrainageVolumeFlowRate"><code class="docutils literal notranslate"><span class="pre">LBM.setDHWDrainageVolumeFlowRate()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="STEBBS.html#STEBBS.LBM.setDHWHeatingSetpoint"><code class="docutils literal notranslate"><span class="pre">LBM.setDHWHeatingSetpoint()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="STEBBS.html#STEBBS.LBM.setDHWUsageVolume"><code class="docutils literal notranslate"><span class="pre">LBM.setDHWUsageVolume()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="STEBBS.html#STEBBS.LBM.setDHWUsageVolumeFlowRate"><code class="docutils literal notranslate"><span class="pre">LBM.setDHWUsageVolumeFlowRate()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="STEBBS.html#STEBBS.LBM.setDepth"><code class="docutils literal notranslate"><span class="pre">LBM.setDepth()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="STEBBS.html#STEBBS.LBM.setEffectiveConductivity"><code class="docutils literal notranslate"><span class="pre">LBM.setEffectiveConductivity()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="STEBBS.html#STEBBS.LBM.setEmissivity"><code class="docutils literal notranslate"><span class="pre">LBM.setEmissivity()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="STEBBS.html#STEBBS.LBM.setFloorArea"><code class="docutils literal notranslate"><span class="pre">LBM.setFloorArea()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="STEBBS.html#STEBBS.LBM.setFloorThickness"><code class="docutils literal notranslate"><span class="pre">LBM.setFloorThickness()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="STEBBS.html#STEBBS.LBM.setFloorVolume"><code class="docutils literal notranslate"><span class="pre">LBM.setFloorVolume()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="STEBBS.html#STEBBS.LBM.setGVFactor"><code class="docutils literal notranslate"><span class="pre">LBM.setGVFactor()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="STEBBS.html#STEBBS.LBM.setHTsAverage"><code class="docutils literal notranslate"><span class="pre">LBM.setHTsAverage()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="STEBBS.html#STEBBS.LBM.setHWTMaxPower"><code class="docutils literal notranslate"><span class="pre">LBM.setHWTMaxPower()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="STEBBS.html#STEBBS.LBM.setHWTPower"><code class="docutils literal notranslate"><span class="pre">LBM.setHWTPower()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="STEBBS.html#STEBBS.LBM.setHWTPowerAverage"><code class="docutils literal notranslate"><span class="pre">LBM.setHWTPowerAverage()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="STEBBS.html#STEBBS.LBM.setHWTdims"><code class="docutils literal notranslate"><span class="pre">LBM.setHWTdims()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="STEBBS.html#STEBBS.LBM.setHWTsAverage"><code class="docutils literal notranslate"><span class="pre">LBM.setHWTsAverage()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="STEBBS.html#STEBBS.LBM.setHWflowrate"><code class="docutils literal notranslate"><span class="pre">LBM.setHWflowrate()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="STEBBS.html#STEBBS.LBM.setHeatingCoolingSetpoint"><code class="docutils literal notranslate"><span class="pre">LBM.setHeatingCoolingSetpoint()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="STEBBS.html#STEBBS.LBM.setHeatingSystem"><code class="docutils literal notranslate"><span class="pre">LBM.setHeatingSystem()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="STEBBS.html#STEBBS.LBM.setHeight"><code class="docutils literal notranslate"><span class="pre">LBM.setHeight()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="STEBBS.html#STEBBS.LBM.setInternalMassArea"><code class="docutils literal notranslate"><span class="pre">LBM.setInternalMassArea()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="STEBBS.html#STEBBS.LBM.setLSR"><code class="docutils literal notranslate"><span class="pre">LBM.setLSR()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="STEBBS.html#STEBBS.LBM.setMaxHeatingPower"><code class="docutils literal notranslate"><span class="pre">LBM.setMaxHeatingPower()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="STEBBS.html#STEBBS.LBM.setMetabolicRate"><code class="docutils literal notranslate"><span class="pre">LBM.setMetabolicRate()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="STEBBS.html#STEBBS.LBM.setOccupancyNumber"><code class="docutils literal notranslate"><span class="pre">LBM.setOccupancyNumber()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="STEBBS.html#STEBBS.LBM.setOccupantData"><code class="docutils literal notranslate"><span class="pre">LBM.setOccupantData()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="STEBBS.html#STEBBS.LBM.setSHC"><code class="docutils literal notranslate"><span class="pre">LBM.setSHC()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="STEBBS.html#STEBBS.LBM.setSVFactor"><code class="docutils literal notranslate"><span class="pre">LBM.setSVFactor()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="STEBBS.html#STEBBS.LBM.setVentilationRate"><code class="docutils literal notranslate"><span class="pre">LBM.setVentilationRate()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="STEBBS.html#STEBBS.LBM.setViewFactors"><code class="docutils literal notranslate"><span class="pre">LBM.setViewFactors()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="STEBBS.html#STEBBS.LBM.setWTsetpoint"><code class="docutils literal notranslate"><span class="pre">LBM.setWTsetpoint()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="STEBBS.html#STEBBS.LBM.setWWR"><code class="docutils literal notranslate"><span class="pre">LBM.setWWR()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="STEBBS.html#STEBBS.LBM.setWallArea"><code class="docutils literal notranslate"><span class="pre">LBM.setWallArea()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="STEBBS.html#STEBBS.LBM.setWallTAR"><code class="docutils literal notranslate"><span class="pre">LBM.setWallTAR()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="STEBBS.html#STEBBS.LBM.setWallThickness"><code class="docutils literal notranslate"><span class="pre">LBM.setWallThickness()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="STEBBS.html#STEBBS.LBM.setWallVolume"><code class="docutils literal notranslate"><span class="pre">LBM.setWallVolume()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="STEBBS.html#STEBBS.LBM.setWidth"><code class="docutils literal notranslate"><span class="pre">LBM.setWidth()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="STEBBS.html#STEBBS.LBM.setWindowArea"><code class="docutils literal notranslate"><span class="pre">LBM.setWindowArea()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="STEBBS.html#STEBBS.LBM.setWindowTAR"><code class="docutils literal notranslate"><span class="pre">LBM.setWindowTAR()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="STEBBS.html#STEBBS.LBM.setWindowThickness"><code class="docutils literal notranslate"><span class="pre">LBM.setWindowThickness()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="STEBBS.html#STEBBS.LBM.setWindowVolume"><code class="docutils literal notranslate"><span class="pre">LBM.setWindowVolume()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="STEBBS.html#STEBBS.LBM.setdensity"><code class="docutils literal notranslate"><span class="pre">LBM.setdensity()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="STEBBS.html#STEBBS.LBM.timeStepCalculation_c"><code class="docutils literal notranslate"><span class="pre">LBM.timeStepCalculation_c()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="STEBBS.html#STEBBS.LBM.ventilationHeatTransfer"><code class="docutils literal notranslate"><span class="pre">LBM.ventilationHeatTransfer()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="STEBBS.html#STEBBS.LBM.wallConduction"><code class="docutils literal notranslate"><span class="pre">LBM.wallConduction()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="STEBBS.html#STEBBS.LBM.wallInsolation"><code class="docutils literal notranslate"><span class="pre">LBM.wallInsolation()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="STEBBS.html#STEBBS.LBM.windowConduction"><code class="docutils literal notranslate"><span class="pre">LBM.windowConduction()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="STEBBS.html#STEBBS.LBM.windowInsolation"><code class="docutils literal notranslate"><span class="pre">LBM.windowInsolation()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Link to this heading"></a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Citizen.html" class="btn btn-neutral float-right" title="Citizen module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Megan McGrory.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

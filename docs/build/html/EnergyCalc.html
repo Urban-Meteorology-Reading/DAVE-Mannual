@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EnergyCalc module &mdash; DAVE  documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Initialise module" href="Initialise.html" />
+    <link rel="prev" title="Citizen module" href="Citizen.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            DAVE
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Citizen.html">Citizen module</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">EnergyCalc module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#EnergyCalc.QF_simple"><code class="docutils literal notranslate"><span class="pre">QF_simple()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#EnergyCalc.alter_dom_set_points"><code class="docutils literal notranslate"><span class="pre">alter_dom_set_points()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#EnergyCalc.alter_heating_HDD"><code class="docutils literal notranslate"><span class="pre">alter_heating_HDD()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#EnergyCalc.ext_conv_coeff"><code class="docutils literal notranslate"><span class="pre">ext_conv_coeff()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#EnergyCalc.feed_dom_energy"><code class="docutils literal notranslate"><span class="pre">feed_dom_energy()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#EnergyCalc.floor_plan"><code class="docutils literal notranslate"><span class="pre">floor_plan()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#EnergyCalc.forcing_SUEWS"><code class="docutils literal notranslate"><span class="pre">forcing_SUEWS()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#EnergyCalc.run_SUEWS_ts"><code class="docutils literal notranslate"><span class="pre">run_SUEWS_ts()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Initialise.html">Initialise module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Initialise_nhoods.html">Initialise_nhoods module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Main_run.html">Main_run module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Movement.html">Movement module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Nhood.html">Nhood module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Profile.html">Profile module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="STEBBS.html">STEBBS module</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">DAVE</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">EnergyCalc module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/EnergyCalc.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-EnergyCalc">
+<span id="energycalc-module"></span><h1>EnergyCalc module<a class="headerlink" href="#module-EnergyCalc" title="Link to this heading"></a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="EnergyCalc.QF_simple">
+<span class="sig-prename descclassname"><span class="pre">EnergyCalc.</span></span><span class="sig-name descname"><span class="pre">QF_simple</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">T2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#EnergyCalc.QF_simple" title="Link to this definition"></a></dt>
+<dd><p>Returns heating/cooling emissions at the residential level for
+either heating/cooling.</p>
+<section id="parameters">
+<h2>Parameters<a class="headerlink" href="#parameters" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt>T2<span class="classifier">np.ndarray</span></dt><dd><p>Indoor residential temperature.</p>
+</dd>
+</dl>
+</section>
+<section id="return">
+<h2>Return<a class="headerlink" href="#return" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt>qf_res<span class="classifier">np.ndarray</span></dt><dd><p>Heating emissions due to heating/cooling at the residential
+level.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="EnergyCalc.alter_dom_set_points">
+<span class="sig-prename descclassname"><span class="pre">EnergyCalc.</span></span><span class="sig-name descname"><span class="pre">alter_dom_set_points</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">use_factor</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">heat_min</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">heat_max</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">av_sp_t3</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="headerlink" href="#EnergyCalc.alter_dom_set_points" title="Link to this definition"></a></dt>
+<dd><p>Provides new heating set point for domestic buildings, based on
+active occupants.
+Returns array of three set points, one new and two for two
+previous time steps, that can be averaged to smoothly reset a
+buildings heating set point.</p>
+<section id="id1">
+<h2>Parameters<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt>use_factor<span class="classifier">np.ndarray</span></dt><dd><p>Ratio of active occupants to total residential population.</p>
+</dd>
+<dt>heat_min<span class="classifier">float</span></dt><dd><p>Minimum heating set point.</p>
+</dd>
+<dt>heat_max<span class="classifier">float</span></dt><dd><p>Maximum heating set point.</p>
+</dd>
+<dt>av_sp_t3<span class="classifier">np.ndarray</span></dt><dd><p>Set points for previous three time steps.</p>
+</dd>
+</dl>
+</section>
+<section id="returns">
+<h2>Returns<a class="headerlink" href="#returns" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt>av_sp_t3<span class="classifier">np.ndarray</span></dt><dd><p>Set points for current and past two time steps.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="EnergyCalc.alter_heating_HDD">
+<span class="sig-prename descclassname"><span class="pre">EnergyCalc.</span></span><span class="sig-name descname"><span class="pre">alter_heating_HDD</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hdd</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#EnergyCalc.alter_heating_HDD" title="Link to this definition"></a></dt>
+<dd><p>Returns truth value of breaching HDD threshold.
+First looks at the monthly HDD, then second looks at 5-day rolling
+average.
+If the HDD value is lower than both thresholds, then TRUE is
+returned, meaning that the night time heating set points are used
+in day.</p>
+<section id="id2">
+<h2>Parameters<a class="headerlink" href="#id2" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt>hdd<span class="classifier">tuple</span></dt><dd><p>Tuple of monthly and 5-day rolling HDD values (as floats).</p>
+</dd>
+</dl>
+</section>
+<section id="id3">
+<h2>Returns<a class="headerlink" href="#id3" title="Link to this heading"></a></h2>
+<p>no name : bool</p>
+</section>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="EnergyCalc.ext_conv_coeff">
+<span class="sig-prename descclassname"><span class="pre">EnergyCalc.</span></span><span class="sig-name descname"><span class="pre">ext_conv_coeff</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wind_speed</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="headerlink" href="#EnergyCalc.ext_conv_coeff" title="Link to this definition"></a></dt>
+<dd><p>Calculates the external convection coefficient using Eq. 11 in
+Cole &amp; Sturrock (1977).</p>
+<section id="id4">
+<h2>Parameters<a class="headerlink" href="#id4" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt>wind_speed<span class="classifier">np.ndarray</span></dt><dd><p>Wind speed $[m s^{-1}]$.</p>
+</dd>
+</dl>
+</section>
+<section id="id5">
+<h2>Returns<a class="headerlink" href="#id5" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt>hc<span class="classifier">np.ndarray</span></dt><dd><p>External convection coefficient.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="EnergyCalc.feed_dom_energy">
+<span class="sig-prename descclassname"><span class="pre">EnergyCalc.</span></span><span class="sig-name descname"><span class="pre">feed_dom_energy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ts</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nhood</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">object</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tair</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tsurf</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">irradiance</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tground</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">windspeed</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kwall</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tsky</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ldown</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lwall</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#EnergyCalc.feed_dom_energy" title="Link to this definition"></a></dt>
+<dd><p>Feeds appliance power demand and environmental variables into the
+domestic BEMs, prompting the BEMs to simulate HC power demand and
+QF emission into the outdoor environment.</p>
+<section id="id6">
+<h2>Parameters<a class="headerlink" href="#id6" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt>tair<span class="classifier">np.ndarray</span></dt><dd><p>Outdoor air temperature [C].</p>
+</dd>
+<dt>tsurf<span class="classifier">np.ndarray</span></dt><dd><p>Surface temperature [C].</p>
+</dd>
+<dt>irradiance<span class="classifier">np.ndarray</span></dt><dd><p>Outdoor irradiance $[W m^{-2}]$.</p>
+</dd>
+<dt>tground<span class="classifier">np.ndarray</span></dt><dd><p>Deep soil temperature [C].</p>
+</dd>
+<dt>windspeed<span class="classifier">np.ndarray</span></dt><dd><p>Outdoor wind speed $[m s^-1]$.</p>
+</dd>
+</dl>
+</section>
+<section id="id7">
+<h2>Returns<a class="headerlink" href="#id7" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt>qfb_dom_air<span class="classifier">np.ndarray</span></dt><dd><p>Sensible energy output from domestic buildings to outdoor air
+for each AN [W].</p>
+</dd>
+<dt>qfb_dom_gr<span class="classifier">np.ndarray</span></dt><dd><p>Sensible energy output from domestic buildings to ground for
+each AN [W].</p>
+</dd>
+<dt>qfm_dom<span class="classifier">np.ndarray</span></dt><dd><p>Energy output from metabolic sources in domestic buildings for
+each AN [W].</p>
+</dd>
+<dt>qheat_dom<span class="classifier">np.ndarray</span></dt><dd><p>Power demand for heating domestic buildings for each AN [W].</p>
+</dd>
+<dt>qcool_dom<span class="classifier">np.ndarray</span></dt><dd><p>Power demand for cooling domestic buildings for each AN [W].</p>
+</dd>
+<dt>avindtemp<span class="classifier">np.ndarray</span></dt><dd><p>Average indoor temperature [K].</p>
+</dd>
+<dt>qfb_dom_fabric<span class="classifier">np.ndarray</span></dt><dd><p>Energy output into domestic building fabric in each AN [W].</p>
+</dd>
+<dt>qhw_dom<span class="classifier">np.ndarray</span></dt><dd><p>Power demand for water heating in domestic buildings for each
+AN [W].</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="EnergyCalc.floor_plan">
+<span class="sig-prename descclassname"><span class="pre">EnergyCalc.</span></span><span class="sig-name descname"><span class="pre">floor_plan</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">height</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">footprint</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#EnergyCalc.floor_plan" title="Link to this definition"></a></dt>
+<dd><p>“Calculate floor plan area from height_building and footprint area</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="EnergyCalc.forcing_SUEWS">
+<span class="sig-prename descclassname"><span class="pre">EnergyCalc.</span></span><span class="sig-name descname"><span class="pre">forcing_SUEWS</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">forcing_days</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nhoods</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coupled_forcing</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#EnergyCalc.forcing_SUEWS" title="Link to this definition"></a></dt>
+<dd><p>Returns the relevant meteorological features of the simulation.</p>
+<section id="id8">
+<h2>Parameters<a class="headerlink" href="#id8" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt>forcing_days<span class="classifier">list</span></dt><dd><p>Starting and ending date (“%d/%m/%Y”) of the simulation to
+run. Figures from SUEWs are available for 2012 only,
+so Y = 2012.</p>
+</dd>
+<dt>nhoods<span class="classifier">np.ndarray</span></dt><dd><p>List of the inquired neighbourhoods (output areas).</p>
+</dd>
+</dl>
+<p>coupled_forcing: bool</p>
+</section>
+<section id="id9">
+<h2>Return<a class="headerlink" href="#id9" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt>qf_ext<span class="classifier">pd.core.series.Series</span></dt><dd><p>Simple heating emission estimate (using initial temperatures).</p>
+</dd>
+<dt>dict_forcing<span class="classifier">dict</span></dt><dd><p>date - timestep as keys, meteorological variables as values.</p>
+</dd>
+<dt>dict_state<span class="classifier">dict</span></dt><dd><p>date, spatial grid as keys, initial state meteorological
+variables as values.</p>
+</dd>
+<dt>tstamps<span class="classifier">Timestamp</span></dt><dd><p>timestep inquired in Timestamp format.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<hr class="docutils" />
+<dl class="py function">
+<dt class="sig sig-object py" id="EnergyCalc.run_SUEWS_ts">
+<span class="sig-prename descclassname"><span class="pre">EnergyCalc.</span></span><span class="sig-name descname"><span class="pre">run_SUEWS_ts</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">envs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">day_count</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ts</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#EnergyCalc.run_SUEWS_ts" title="Link to this definition"></a></dt>
+<dd><p>Returns the estimated heating emissions and energy demand
+components for an inidividual timestep.</p>
+<section id="id10">
+<h2>Parameters<a class="headerlink" href="#id10" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt>dict_forcing<span class="classifier">dict</span></dt><dd><p>date - timestep as keys, meteorological variables as values.</p>
+</dd>
+<dt>dict_state<span class="classifier">dict</span></dt><dd><p>date, spatial grid as keys, initial state meteorological
+variables as values.</p>
+</dd>
+<dt>forcing_tstamps<span class="classifier">Timestamp</span></dt><dd><p>The timestamp of the timestep at which the simulation is run.</p>
+</dd>
+<dt>day_count<span class="classifier">int</span></dt><dd><p>Progressive count of the days on which the simulation is being
+run. The spin-up day has normally day_count = 0.</p>
+</dd>
+<dt>ts<span class="classifier">int</span></dt><dd><p>Progressive ten-minute time slot from 4 AM, included in
+range(144). E.g., ts = 0 corresponds to 4:00 AM to 4:10 AM,
+ts = 11 to 5:10 AM to 5:20 AM.</p>
+</dd>
+<dt>date<span class="classifier">str</span></dt><dd><p>Environmental variable date in format “%d/%m/%y %H:%M”.</p>
+</dd>
+<dt>qf_ext<span class="classifier">pd.core.series.Series</span></dt><dd><p>Simple heating emission estimate (using initial temperatures).</p>
+</dd>
+<dt>case_qf<span class="classifier">float</span></dt><dd><p>Initial value for Qf - heating emission.</p>
+</dd>
+</dl>
+</section>
+<section id="id11">
+<h2>Return<a class="headerlink" href="#id11" title="Link to this heading"></a></h2>
+<p>tair
+tsurf
+kdn
+windspeed</p>
+</section>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Citizen.html" class="btn btn-neutral float-left" title="Citizen module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Initialise.html" class="btn btn-neutral float-right" title="Initialise module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Megan McGrory.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

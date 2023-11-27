@@ -1,0 +1,7 @@
+load\_solved\_graphs module
+===========================
+
+.. automodule:: load_solved_graphs
+    :members:
+    :undoc-members:
+    :show-inheritance:

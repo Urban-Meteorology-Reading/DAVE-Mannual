@@ -1,0 +1,1763 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>STEBBS module &mdash; DAVE  documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Profile module" href="Profile.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            DAVE
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Citizen.html">Citizen module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EnergyCalc.html">EnergyCalc module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Initialise.html">Initialise module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Initialise_nhoods.html">Initialise_nhoods module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Main_run.html">Main_run module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Movement.html">Movement module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Nhood.html">Nhood module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Profile.html">Profile module</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">STEBBS module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#STEBBS.LBM"><code class="docutils literal notranslate"><span class="pre">LBM</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#STEBBS.LBM.HWflowrate_change"><code class="docutils literal notranslate"><span class="pre">LBM.HWflowrate_change()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#STEBBS.LBM.additionalSystemCoolingEnergy"><code class="docutils literal notranslate"><span class="pre">LBM.additionalSystemCoolingEnergy()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#STEBBS.LBM.additionalSystemHeatingEnergy"><code class="docutils literal notranslate"><span class="pre">LBM.additionalSystemHeatingEnergy()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#STEBBS.LBM.cooling"><code class="docutils literal notranslate"><span class="pre">LBM.cooling()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#STEBBS.LBM.getAll"><code class="docutils literal notranslate"><span class="pre">LBM.getAll()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#STEBBS.LBM.getAllDHW"><code class="docutils literal notranslate"><span class="pre">LBM.getAllDHW()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#STEBBS.LBM.getHTsAverage"><code class="docutils literal notranslate"><span class="pre">LBM.getHTsAverage()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#STEBBS.LBM.getHWTsAverage"><code class="docutils literal notranslate"><span class="pre">LBM.getHWTsAverage()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#STEBBS.LBM.getIndoorAirTemperature"><code class="docutils literal notranslate"><span class="pre">LBM.getIndoorAirTemperature()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#STEBBS.LBM.getIndoorFloorTemperature"><code class="docutils literal notranslate"><span class="pre">LBM.getIndoorFloorTemperature()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#STEBBS.LBM.getIndoorMassTemperature"><code class="docutils literal notranslate"><span class="pre">LBM.getIndoorMassTemperature()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#STEBBS.LBM.getIndoorWallTemperature"><code class="docutils literal notranslate"><span class="pre">LBM.getIndoorWallTemperature()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#STEBBS.LBM.getIndoorWindowTemperature"><code class="docutils literal notranslate"><span class="pre">LBM.getIndoorWindowTemperature()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#STEBBS.LBM.getOutdoorFloorTemperature"><code class="docutils literal notranslate"><span class="pre">LBM.getOutdoorFloorTemperature()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#STEBBS.LBM.getOutdoorWallTemperature"><code class="docutils literal notranslate"><span class="pre">LBM.getOutdoorWallTemperature()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#STEBBS.LBM.getOutdoorWindowTemperature"><code class="docutils literal notranslate"><span class="pre">LBM.getOutdoorWindowTemperature()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#STEBBS.LBM.getTimestepEnergyExchanges"><code class="docutils literal notranslate"><span class="pre">LBM.getTimestepEnergyExchanges()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#STEBBS.LBM.heating"><code class="docutils literal notranslate"><span class="pre">LBM.heating()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#STEBBS.LBM.indoorConvectionHeatTransfer"><code class="docutils literal notranslate"><span class="pre">LBM.indoorConvectionHeatTransfer()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#STEBBS.LBM.indoorRadiativeHeatTransfer"><code class="docutils literal notranslate"><span class="pre">LBM.indoorRadiativeHeatTransfer()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#STEBBS.LBM.internalApplianceGains"><code class="docutils literal notranslate"><span class="pre">LBM.internalApplianceGains()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#STEBBS.LBM.internalConvectionHeatTransfer"><code class="docutils literal notranslate"><span class="pre">LBM.internalConvectionHeatTransfer()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#STEBBS.LBM.internalOccupancyGains"><code class="docutils literal notranslate"><span class="pre">LBM.internalOccupancyGains()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#STEBBS.LBM.outdoorConvectionHeatTransfer"><code class="docutils literal notranslate"><span class="pre">LBM.outdoorConvectionHeatTransfer()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#STEBBS.LBM.outdoorRadiativeHeatTransfer"><code class="docutils literal notranslate"><span class="pre">LBM.outdoorRadiativeHeatTransfer()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#STEBBS.LBM.reinitialiseHC"><code class="docutils literal notranslate"><span class="pre">LBM.reinitialiseHC()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#STEBBS.LBM.reinitialiseTemperatures"><code class="docutils literal notranslate"><span class="pre">LBM.reinitialiseTemperatures()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#STEBBS.LBM.setAirAndMassVolume"><code class="docutils literal notranslate"><span class="pre">LBM.setAirAndMassVolume()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#STEBBS.LBM.setApplianceData"><code class="docutils literal notranslate"><span class="pre">LBM.setApplianceData()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#STEBBS.LBM.setConvectionCoefficients"><code class="docutils literal notranslate"><span class="pre">LBM.setConvectionCoefficients()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#STEBBS.LBM.setCoolingSystem"><code class="docutils literal notranslate"><span class="pre">LBM.setCoolingSystem()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#STEBBS.LBM.setDHWDrainageVolumeFlowRate"><code class="docutils literal notranslate"><span class="pre">LBM.setDHWDrainageVolumeFlowRate()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#STEBBS.LBM.setDHWHeatingSetpoint"><code class="docutils literal notranslate"><span class="pre">LBM.setDHWHeatingSetpoint()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#STEBBS.LBM.setDHWUsageVolume"><code class="docutils literal notranslate"><span class="pre">LBM.setDHWUsageVolume()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#STEBBS.LBM.setDHWUsageVolumeFlowRate"><code class="docutils literal notranslate"><span class="pre">LBM.setDHWUsageVolumeFlowRate()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#STEBBS.LBM.setDepth"><code class="docutils literal notranslate"><span class="pre">LBM.setDepth()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#STEBBS.LBM.setEffectiveConductivity"><code class="docutils literal notranslate"><span class="pre">LBM.setEffectiveConductivity()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#STEBBS.LBM.setEmissivity"><code class="docutils literal notranslate"><span class="pre">LBM.setEmissivity()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#STEBBS.LBM.setFloorArea"><code class="docutils literal notranslate"><span class="pre">LBM.setFloorArea()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#STEBBS.LBM.setFloorThickness"><code class="docutils literal notranslate"><span class="pre">LBM.setFloorThickness()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#STEBBS.LBM.setFloorVolume"><code class="docutils literal notranslate"><span class="pre">LBM.setFloorVolume()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#STEBBS.LBM.setGVFactor"><code class="docutils literal notranslate"><span class="pre">LBM.setGVFactor()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#STEBBS.LBM.setHTsAverage"><code class="docutils literal notranslate"><span class="pre">LBM.setHTsAverage()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#STEBBS.LBM.setHWTMaxPower"><code class="docutils literal notranslate"><span class="pre">LBM.setHWTMaxPower()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#STEBBS.LBM.setHWTPower"><code class="docutils literal notranslate"><span class="pre">LBM.setHWTPower()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#STEBBS.LBM.setHWTPowerAverage"><code class="docutils literal notranslate"><span class="pre">LBM.setHWTPowerAverage()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#STEBBS.LBM.setHWTdims"><code class="docutils literal notranslate"><span class="pre">LBM.setHWTdims()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#STEBBS.LBM.setHWTsAverage"><code class="docutils literal notranslate"><span class="pre">LBM.setHWTsAverage()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#STEBBS.LBM.setHWflowrate"><code class="docutils literal notranslate"><span class="pre">LBM.setHWflowrate()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#STEBBS.LBM.setHeatingCoolingSetpoint"><code class="docutils literal notranslate"><span class="pre">LBM.setHeatingCoolingSetpoint()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#STEBBS.LBM.setHeatingSystem"><code class="docutils literal notranslate"><span class="pre">LBM.setHeatingSystem()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#STEBBS.LBM.setHeight"><code class="docutils literal notranslate"><span class="pre">LBM.setHeight()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#STEBBS.LBM.setInternalMassArea"><code class="docutils literal notranslate"><span class="pre">LBM.setInternalMassArea()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#STEBBS.LBM.setLSR"><code class="docutils literal notranslate"><span class="pre">LBM.setLSR()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#STEBBS.LBM.setMaxHeatingPower"><code class="docutils literal notranslate"><span class="pre">LBM.setMaxHeatingPower()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#STEBBS.LBM.setMetabolicRate"><code class="docutils literal notranslate"><span class="pre">LBM.setMetabolicRate()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#STEBBS.LBM.setOccupancyNumber"><code class="docutils literal notranslate"><span class="pre">LBM.setOccupancyNumber()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#STEBBS.LBM.setOccupantData"><code class="docutils literal notranslate"><span class="pre">LBM.setOccupantData()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#STEBBS.LBM.setSHC"><code class="docutils literal notranslate"><span class="pre">LBM.setSHC()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#STEBBS.LBM.setSVFactor"><code class="docutils literal notranslate"><span class="pre">LBM.setSVFactor()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#STEBBS.LBM.setVentilationRate"><code class="docutils literal notranslate"><span class="pre">LBM.setVentilationRate()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#STEBBS.LBM.setViewFactors"><code class="docutils literal notranslate"><span class="pre">LBM.setViewFactors()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#STEBBS.LBM.setWTsetpoint"><code class="docutils literal notranslate"><span class="pre">LBM.setWTsetpoint()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#STEBBS.LBM.setWWR"><code class="docutils literal notranslate"><span class="pre">LBM.setWWR()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#STEBBS.LBM.setWallArea"><code class="docutils literal notranslate"><span class="pre">LBM.setWallArea()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#STEBBS.LBM.setWallTAR"><code class="docutils literal notranslate"><span class="pre">LBM.setWallTAR()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#STEBBS.LBM.setWallThickness"><code class="docutils literal notranslate"><span class="pre">LBM.setWallThickness()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#STEBBS.LBM.setWallVolume"><code class="docutils literal notranslate"><span class="pre">LBM.setWallVolume()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#STEBBS.LBM.setWidth"><code class="docutils literal notranslate"><span class="pre">LBM.setWidth()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#STEBBS.LBM.setWindowArea"><code class="docutils literal notranslate"><span class="pre">LBM.setWindowArea()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#STEBBS.LBM.setWindowTAR"><code class="docutils literal notranslate"><span class="pre">LBM.setWindowTAR()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#STEBBS.LBM.setWindowThickness"><code class="docutils literal notranslate"><span class="pre">LBM.setWindowThickness()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#STEBBS.LBM.setWindowVolume"><code class="docutils literal notranslate"><span class="pre">LBM.setWindowVolume()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#STEBBS.LBM.setdensity"><code class="docutils literal notranslate"><span class="pre">LBM.setdensity()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#STEBBS.LBM.timeStepCalculation_c"><code class="docutils literal notranslate"><span class="pre">LBM.timeStepCalculation_c()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#STEBBS.LBM.ventilationHeatTransfer"><code class="docutils literal notranslate"><span class="pre">LBM.ventilationHeatTransfer()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#STEBBS.LBM.wallConduction"><code class="docutils literal notranslate"><span class="pre">LBM.wallConduction()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#STEBBS.LBM.wallInsolation"><code class="docutils literal notranslate"><span class="pre">LBM.wallInsolation()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#STEBBS.LBM.windowConduction"><code class="docutils literal notranslate"><span class="pre">LBM.windowConduction()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#STEBBS.LBM.windowInsolation"><code class="docutils literal notranslate"><span class="pre">LBM.windowInsolation()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">DAVE</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">STEBBS module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/STEBBS.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-STEBBS">
+<span id="stebbs-module"></span><h1>STEBBS module<a class="headerlink" href="#module-STEBBS" title="Link to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="STEBBS.LBM">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">STEBBS.</span></span><span class="sig-name descname"><span class="pre">LBM</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nameListFile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'none'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nameList</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'none'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">commercial</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'none'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">w</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">d</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#STEBBS.LBM" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Simplified Thermal Energy Balance for Buildings Scheme (STEBBS)</p>
+<section id="parameters">
+<h2>Parameters<a class="headerlink" href="#parameters" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt>nameListFile: f90nml.Namelist.Namelist</dt><dd><p>NML file of domestic building archetypes and their parameters</p>
+</dd>
+<dt>nameList: str</dt><dd><p>Path to nameList file</p>
+</dd>
+<dt>commercial: bool</dt><dd><p>Bool for commercial building assignment</p>
+</dd>
+<dt>w: float</dt><dd><p>Width of building (x-axis) [m]</p>
+</dd>
+<dt>h: float</dt><dd><p>Height of building (z-axis) [m]</p>
+</dd>
+<dt>d: float</dt><dd><p>Depth of building (y-axis) [m]</p>
+</dd>
+</dl>
+</section>
+<section id="attributes">
+<h2>Attributes<a class="headerlink" href="#attributes" title="Link to this heading"></a></h2>
+<p># NOTE: ‘HEAT FLUX’ ATTRIBUTES ARE GIVEN IN WATTS, TO BE DIVIDED BY
+# AREA LATER
+Qheat: float</p>
+<blockquote>
+<div><p>Power demand for heating [W]
+(Currently only sensible but this needs to be  split into
+sensible and latent heat components)</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Qcool: float</dt><dd><p>Power demand for cooling [W]
+(Currently only sensible but this needs to be  split into
+sensible and latent heat components)</p>
+</dd>
+<dt>Qmetabolic_sensible: float</dt><dd><p>Sensible heat flux from people in building [W]</p>
+</dd>
+<dt>Qmetabolic_latent: float</dt><dd><p>Latent heat flux from people in building [W]</p>
+</dd>
+<dt>Qtotal_water_tank: float</dt><dd><p>Power demand for heating water [W]</p>
+</dd>
+<dt>qhwtDrain: float</dt><dd><p>Energy in water drained from building to sewers [W]</p>
+</dd>
+<dt>EnergyExchange: list</dt><dd><p>Stores all surface energy exchanges of the timestep calculation
+to allow QF,B and Qs to be calculated. In order:
+Transmitted insolation through window [W] (Qsw_transmitted_window)
+Absorbed insolation by window (Qsw_absorbed_window) [W]
+Absorbed insolation by wall (Qsw_absorbed_wallroof) [W]
+Convective heat transfer indoor air and internal mass (Qconv_indair_to_indoormass) [W]
+Indoor wall surfaces radiative exchange (Qlw_net_intwallroof_to_allotherindoorsurfaces)
+Indoor window surface radiative exchange (Qlw_net_intwindow_to_allotherindoorsurfaces)
+Ground floor internal radiative exchange (Qlw_net_intgroundfloor_to_allotherindoorsurfaces)
+Internal appliance gains (Q_appliance) [W]
+Ventilation heat transfer (Q_ventilation) [W]
+Indoor wall convective heat transfer (Qconv_indair_to_intwallroof) [W]
+Indoor window convective heat transfer (Qconv_indair_to_intwindow) [W]
+Indoor floor convective heat transfer (Qconv_indair_to_intgroundfloor) [W]
+Additional system Heating Energy - loss due to efficiency (Qloss_efficiency_heating_air) [W]
+Wall heat conduction, inside to outside (Qcond_wallroof) [W]
+Window heat conduction, inside to outside (Qcond_window) [W]
+Floor heat conduction, inside to outside (Qcond_groundfloor) [W]
+Conducted heat to the ground (Qcond_ground) [W]
+Outside wall radiative heat transfer (Qlw_net_extwallroof_to_outair) [W]
+Outside window radiative heat transfer  (Qlw_net_extwindow_to_outair) [W]
+Outside wall convective heat transfer (Qconv_extwallroof_to_outair) [W]
+Outside window convective heat transfer (Qconv_extwindow_to_outair) [W]
+Heat and associated system energy ejected by cooling system
+of building [W]
+Heat storage flux (QS), [W]
+Heat storage flux of fabric (QS_fabric), [W]
+Heat storage flux of indoor air (QS_air), [W]</p>
+</dd>
+<dt>sigma: float</dt><dd><p>Stefan-Boltzmann constant [W m-2 K-4]</p>
+</dd>
+<dt>height_building: float</dt><dd><p>Height of building (z-axis) [m]</p>
+</dd>
+<dt>Afootprint: float</dt><dd><p>Floor plan area of buliding [m2]</p>
+</dd>
+<dt>wallExternalArea: float</dt><dd><p>External wall area [m2]</p>
+</dd>
+<dt>ratioInternalVolume: float</dt><dd><p>Ratio of internal to external volume [-]</p>
+</dd>
+<dt>ratio_window_wall: float</dt><dd><p>Window to wall ratio</p>
+</dd>
+<dt>thickness_wallroof: float</dt><dd><p>Wall and roof thickness (not separate) [m]</p>
+</dd>
+<dt>thickness_groundfloor: float</dt><dd><p>Ground floor thickness [m]</p>
+</dd>
+<dt>depth_ground: float</dt><dd><p>Depth of ground considered for calculating QF,B to ground [m]</p>
+</dd>
+<dt>thickness_window: float</dt><dd><p>Thickness of all windows [m]</p>
+</dd>
+<dt>conv_coeff_intwallroof: float</dt><dd><p>Internal convection coefficient for walls and roof [W m-2 K-1]</p>
+</dd>
+<dt>conv_coeff_indoormass: float</dt><dd><p>Convection coefficient for internal mass [W m-2 K-1]</p>
+</dd>
+<dt>conv_coeff_intgroundfloor: float</dt><dd><p>Convection coefficient for floors [W m-2 K-1]</p>
+</dd>
+<dt>conv_coeff_intwindow: float</dt><dd><p>Convection coefficient for internal window surface [W m-2 K-1]</p>
+</dd>
+<dt>conv_coeff_extwallroof: float</dt><dd><p>Initial convection coefficient for walls and roof [W m-2 K-1]</p>
+</dd>
+<dt>conv_coeff_extwindow: float</dt><dd><p>Initial convection coefficient for external surface of windows
+[W m-2 K-1]</p>
+</dd>
+<dt>conductivity_wallroof: float</dt><dd><p>Effective conductivity of walls and roofs, calculated as
+Ltotal / (Ln / kn) for n components of the wall/roof [W m-1 K-1]</p>
+</dd>
+<dt>conductivity_groundfloor: float</dt><dd><p>Effective conductivity of the ground floor, calculated as
+Ltotal / (Ln / kn) for n components of the wall/roof [W m-1 K-1]</p>
+</dd>
+<dt>conductivity_window: float</dt><dd><p>Effective conductivity of windows, calculated as
+Ltotal / (Ln / kn) for n components of the wall/roof [W m-1 K-1]</p>
+</dd>
+<dt>conductivity_ground: float</dt><dd><p>Conductivity of external ground [W m-1 K-1]</p>
+</dd>
+<dt>density_wallroof: float</dt><dd><p>Density of the walls and roof [kg m-3]</p>
+</dd>
+<dt>density_groundfloor: float</dt><dd><p>Density of the ground floor [kg m-3]</p>
+</dd>
+<dt>density_window: float</dt><dd><p>Density of the windows [kg m-3]</p>
+</dd>
+<dt>density_indoormass: float</dt><dd><p>Density of the internal mass [kg m-3]</p>
+</dd>
+<dt>density_air_ind: float</dt><dd><p>Density of the indoor air [kg m-3]</p>
+</dd>
+<dt>cp_wallroof: float</dt><dd><p>Specific heat capacity of walls and roof [J K-1 kg-1]</p>
+</dd>
+<dt>cp_groundfloor: float</dt><dd><p>Specific heat capacity of ground floor [J K-1 kg-1]</p>
+</dd>
+<dt>cp_window: float</dt><dd><p>Specific heat capacity of windows [J K-1 kg-1]</p>
+</dd>
+<dt>cp_indoormass: float</dt><dd><p>Specific heat capacity of the internal mass [J K-1 kg-1]</p>
+</dd>
+<dt>cp_air_ind: float</dt><dd><p>Specific heat capacity of indoor air [J K-1 kg-1]</p>
+</dd>
+<dt>emissivity_extwallroof: float</dt><dd><p>Emissivity of walls and roof external surface</p>
+</dd>
+<dt>emissivity_intwallroof: float</dt><dd><p>Emissivity of walls and roof internal surface</p>
+</dd>
+<dt>emissivity_indoormass: float</dt><dd><p>Emissivity of internal mass surface</p>
+</dd>
+<dt>emissivity_extwindow: float</dt><dd><p>Emissivity of windows external surface</p>
+</dd>
+<dt>emissivity_intwindow: float</dt><dd><p>Emissivity of windows internal surface</p>
+</dd>
+<dt>windowTransmissivity: float</dt><dd><p>Transmissivity of windows</p>
+</dd>
+<dt>windowAbsorbtivity: float</dt><dd><p>Absorbtivity of windows</p>
+</dd>
+<dt>windowReflectivity: float</dt><dd><p>Reflectivity of windows</p>
+</dd>
+<dt>wallTransmisivity: float</dt><dd><p>Transmissivity of walls</p>
+</dd>
+<dt>wallAbsorbtivity: float</dt><dd><p>Absorbtivity of walls</p>
+</dd>
+<dt>wallReflectivity: float</dt><dd><p>Reflectivity of walls</p>
+</dd>
+<dt>BVF_extwall: float</dt><dd><p>Building view factor of external walls</p>
+</dd>
+<dt>GVF_extwall: float</dt><dd><p>Ground view factor of external walls</p>
+</dd>
+<dt>SVF_extwall: float</dt><dd><p>Sky view factor of external walls</p>
+</dd>
+<dt>occupants: float</dt><dd><p>Number of occupants present in building</p>
+</dd>
+<dt>metabolic_rate: float</dt><dd><p>Metabolic rate of building occupants [W]</p>
+</dd>
+<dt>ratio_metabolic_latent_sensible: float</dt><dd><p>Latent-to-sensible ratio of metabolic energy release of occupants</p>
+</dd>
+<dt>appliance_power_rating: float</dt><dd><p>Power demand of single appliance [W]</p>
+</dd>
+<dt>appliance_totalnumber: int</dt><dd><p>Number of appliances present</p>
+</dd>
+<dt>appliance_usage_factor: float</dt><dd><p>Number of appliances in use</p>
+</dd>
+<dt>maxheatingpower_air: float</dt><dd><p>Maximum power demand of heating system [W]</p>
+</dd>
+<dt>heating_efficiency_air: float</dt><dd><p>Efficiency of heating system</p>
+</dd>
+<dt>maxcoolingpower_air: float</dt><dd><p>Maximum power demand of cooling system [W]</p>
+</dd>
+<dt>coeff_performance_cooling: float</dt><dd><p>Coefficient of performance of cooling system</p>
+</dd>
+<dt>Vair_ind: float</dt><dd><p>Volume of air (volume of building multiplied by factor that
+accounts for internal mass [m3]</p>
+</dd>
+<dt>ventilation_rate: float</dt><dd><p>Ventilation rate (air changes per second) [m3 s-1]</p>
+</dd>
+<dt>Awallroof: float</dt><dd><p>Area of walls [m2]</p>
+</dd>
+<dt>Vwallroof: float</dt><dd><p>Volume of walls [m2]</p>
+</dd>
+<dt>Vgroundfloor: float</dt><dd><p>Volume of ground floor [m3]</p>
+</dd>
+<dt>Awindow: float</dt><dd><p>Total area of windows [m2]</p>
+</dd>
+<dt>Vwindow: float</dt><dd><p>Total volume of windows [m3]</p>
+</dd>
+<dt>Vindoormass: float</dt><dd><p>Total volume of internal mass [m3]</p>
+</dd>
+<dt>Aindoormass: float</dt><dd><p>Total surface area of internal mass, assuming that internal mass is
+a cube [m3]</p>
+</dd>
+<dt>h_i: list</dt><dd><p>Internal convection coefficients, in order: wall and roof, internal
+mass, floor, windows [W m-2 K-1]</p>
+</dd>
+<dt>h_o: list</dt><dd><p>External convection coefficients, in order: wall and roof,
+window [W m-2 K-1]</p>
+</dd>
+<dt>k_eff: list</dt><dd><p>Effective conductivities, in order: wall and roof, ground floor,
+windows, external ground [W m-1 K-1]</p>
+</dd>
+<dt>rho: list</dt><dd><p>Densities, in order: wall and roof, ground floor, windows, internal
+mass [kg m-3]</p>
+</dd>
+<dt>Cp: list</dt><dd><p>Specific heat capacities, in order: wall and roof, ground floor,
+windows, internal mass, indoor air [J K-1 kg-1]</p>
+</dd>
+<dt>emis: list</dt><dd><p>Emissivities, in order: external wall and roof surfaces, internal wall
+and roof surfaces, internal mass, external window surface, internal
+window surface</p>
+</dd>
+<dt>wiTAR: list</dt><dd><p>Window properties, in order: transmissivity, absorbtivity, reflectivity</p>
+</dd>
+<dt>waTAR: list</dt><dd><p>Wall properties, in order: transmissivity, absorbtivity, reflectivity</p>
+</dd>
+<dt>viewFactors: list</dt><dd><p>View factors, in order: building, ground, sky</p>
+</dd>
+<dt>occupantData: list</dt><dd><p>Occupant data, in order: number of occupants, metabolic rate [W],
+latent-to-sensible ratio</p>
+</dd>
+<dt>Tair_ind: float</dt><dd><p>Indoor air temperature [K]</p>
+</dd>
+<dt>Tindoormass: float</dt><dd><p>Indoor mass temperature [K]</p>
+</dd>
+<dt>Tintwallroof: float</dt><dd><p>Wall indoor surface temperature [K]</p>
+</dd>
+<dt>Textwallroof: float</dt><dd><p>Wall outdoor surface temperature [K]</p>
+</dd>
+<dt>Tintwindow: float</dt><dd><p>Window indoor surface temperature [K]</p>
+</dd>
+<dt>Textwindow: float</dt><dd><p>Window outdoor surface temperature [K]</p>
+</dd>
+<dt>Tintgroundfloor: float</dt><dd><p>Ground floor indoor surface temperature [K]</p>
+</dd>
+<dt>Textgroundfloor: float</dt><dd><p>Ground floor outdoor surface temperature [K]</p>
+</dd>
+<dt>Ts: list</dt><dd><p>Heating and Cooling setpoint temperatures, respectively [K]</p>
+</dd>
+<dt>initTs:list</dt><dd><p>Initial heating and cooling setpoint temperatures, respecitively [K]</p>
+</dd>
+<dt>HTsAverage: np.ndarray</dt><dd><p>Heating set points from current and two previous time steps [K]</p>
+</dd>
+<dt>HWTsAverage: np.ndarray</dt><dd><p>Hot water set points from current and two previous time steps [K]</p>
+</dd>
+<dt>Twater_tank: float</dt><dd><p>Water temperature in hot water tank [K]</p>
+</dd>
+<dt>Tintwall_tank: float</dt><dd><p>Hot water tank internal wall temperature [K]</p>
+</dd>
+<dt>Textwall_tank: float</dt><dd><p>Hot water tank external wall temperature [K]</p>
+</dd>
+<dt>thickness_tankwall: float</dt><dd><p>Hot water tank wall thickness (m)</p>
+</dd>
+<dt>Tincomingwater_tank: float</dt><dd><p>Temperature of water coming into the water tank [K]</p>
+</dd>
+<dt>Vwater_tank: float</dt><dd><p>Volume of water in hot water tank [m3]</p>
+</dd>
+<dt>Asurf_tank: float</dt><dd><p>Surface area of hot water tank (cylinder h= 1.5) [m2]</p>
+</dd>
+<dt>Vwall_tank: float</dt><dd><p>Wall volume of hot water tank [m2]</p>
+</dd>
+<dt>setTwater_tank: float</dt><dd><p>Water Tank setpoint temperature [K]</p>
+</dd>
+<dt>init_wtTs: float</dt><dd><p>Initial water tank setpoint temperature [K]</p>
+</dd>
+<dt>Twater_vessel: float</dt><dd><p>Water temperature of water held in use in building [K]</p>
+</dd>
+<dt>Tintwall_vessel: float</dt><dd><p>Hot water vessel internal wall temperature [K]</p>
+</dd>
+<dt>Textwall_vessel: float</dt><dd><p>Hot water vessel external wall temperature [K]</p>
+</dd>
+<dt>thickness_wall_vessel: float</dt><dd><p>Hot water vessel wall thickness [m]</p>
+</dd>
+<dt>Vwater_vessel: float</dt><dd><p>Volume of water held in use in building [m3]</p>
+</dd>
+<dt>Awater_vessel: float</dt><dd><p>Surface area of hot water in vessels in building [m2]</p>
+</dd>
+<dt>Vwall_vessel: float</dt><dd><p>Wall volume of hot water vessels in building [m3]</p>
+</dd>
+<dt>flowrate_water_supply: float</dt><dd><p>Hot water flow rate from tank to vessel [m3 s-1]</p>
+</dd>
+<dt>flowrate_water_drain: float</dt><dd><p>Flow rate of hot water held in building to drain [m3 s-1]</p>
+</dd>
+<dt>single_flowrate_water_supply: float</dt><dd><p>Hot water flow rate for a single use fo hot water [m3 s-1]</p>
+</dd>
+<dt>single_flowrate_water_supply: float</dt><dd><p>Flow rate of hot water draining held in building to drain for
+a single use of hot water [m3 s-1]</p>
+</dd>
+<dt>cp_water: float</dt><dd><p>Specific heat capacity of hot water [J kg-1 K-1]</p>
+</dd>
+<dt>cp_wall_tank: float</dt><dd><p>Specific heat capacity of hot water tank wall [J kg-1 K-1]</p>
+</dd>
+<dt>cp_wall_vessel: float</dt><dd><p>Specific heat capacity of vessels containing hot water in use in
+building [J K-1 kg-1]</p>
+</dd>
+<dt>density_water: float</dt><dd><p>Density of hot water in use [kg m-3]</p>
+</dd>
+<dt>density_wall_tank: float</dt><dd><p>Density of hot water tank wall [kg m-3]</p>
+</dd>
+<dt>density_wall_vessel: float</dt><dd><p>Density of vessels containing hot water in use [kg m-3]</p>
+</dd>
+<dt>BVF_tank: float</dt><dd><p>Water tank - building wall view factor</p>
+</dd>
+<dt>MVF_tank: float</dt><dd><p>Water tank - building internal mass view factor</p>
+</dd>
+<dt>conductivity_wall_tank: float</dt><dd><p>Effective wall conductivity of the hot water tank [W m-1 K-1]</p>
+</dd>
+<dt>conv_coeff_intwall_tank: float</dt><dd><p>Effective internal wall convection coefficient of the hot water
+tank [W m-2 K-1]</p>
+</dd>
+<dt>conv_coeff_extwall_tank: float</dt><dd><p>Effective external wall convection coefficient of the hot water
+tank [W m-2 K-1]</p>
+</dd>
+<dt>emissivity_extwall_tank: float</dt><dd><p>Effective external wall emissivity of the hot water tank</p>
+</dd>
+<dt>conductivity_wall_vessel: float</dt><dd><p>Effective conductivity of vessels containing hot water in use in
+building [W m-1 K-1]</p>
+</dd>
+<dt>conv_coeff_intwall_vessel: float</dt><dd><p>Effective internal wall convection coefficient of the vessels holding
+hot water in use in building [W m-2 K-1]</p>
+</dd>
+<dt>conv_coeff_extwall_vessel: float</dt><dd><p>Effective external wall convection coefficient of the vessels holding
+hot water in use in building [W m-2 K-1]</p>
+</dd>
+<dt>emissivity_extwall_vessel: float</dt><dd><p>Effective external wall emissivity of hot water being used within
+building</p>
+</dd>
+<dt>maxheatingpower_water: float</dt><dd><p>Maximum power demand for water haeting system [W]</p>
+</dd>
+<dt>heating_efficiency_water: float</dt><dd><p>Efficiency of hot water system</p>
+</dd>
+<dt>minVwater_vessel: float</dt><dd><p>Minimum volume of hot water in use [m3]</p>
+</dd>
+<dt>minHeatingPower_DHW: float</dt><dd><p>Minimum power demand of hot water system [W]</p>
+</dd>
+<dt>HeatingPower_DHW: float</dt><dd><p>Current power demand of water heating system [W]</p>
+</dd>
+<dt>HWPowerAverage: np.ndarray</dt><dd><p>Water heating set points from current and two previous time steps [K]</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="STEBBS.LBM.HWflowrate_change">
+<span class="sig-name descname"><span class="pre">HWflowrate_change</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">users</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resolution</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#STEBBS.LBM.HWflowrate_change" title="Link to this definition"></a></dt>
+<dd><p>Changes the flow rates from hot water tank to the vessel and the vessel
+to the drain [m3 s-1] by the number of hot water users</p>
+<section id="id1">
+<h3>Parameters<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>users<span class="classifier">float</span></dt><dd><p>Number of hot water users</p>
+</dd>
+<dt>resolution<span class="classifier">int</span></dt><dd><p>Seconds in time step [s]</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="STEBBS.LBM.additionalSystemCoolingEnergy">
+<span class="sig-name descname"><span class="pre">additionalSystemCoolingEnergy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">q_cooling</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">COP</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#STEBBS.LBM.additionalSystemCoolingEnergy" title="Link to this definition"></a></dt>
+<dd><p>Calculates the additional heat from the cooling system due to
+system COP [W]</p>
+<section id="id2">
+<h3>Parameters<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
+<p>q_cooling
+COP</p>
+</section>
+<section id="returns">
+<h3>Returns<a class="headerlink" href="#returns" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>float</dt><dd><p>coolwcop: additional heat from the cooling system due to
+system COP [W]</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="STEBBS.LBM.additionalSystemHeatingEnergy">
+<span class="sig-name descname"><span class="pre">additionalSystemHeatingEnergy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">q_heating</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">epsilon</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#STEBBS.LBM.additionalSystemHeatingEnergy" title="Link to this definition"></a></dt>
+<dd><p>Calculates the additional heat from the heating system due to system
+efficiency [W]</p>
+<section id="id3">
+<h3>Parameters<a class="headerlink" href="#id3" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>q_heating<span class="classifier">float</span></dt><dd><p>Heat injected into building by heating system [W]</p>
+</dd>
+<dt>epsilon<span class="classifier">float</span></dt><dd><p>Rated efficiency of the total heating system</p>
+</dd>
+</dl>
+</section>
+<section id="id4">
+<h3>Returns<a class="headerlink" href="#id4" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>float</dt><dd><p>qH_additional: additional heat from the heating system due to
+system efficiency [W]</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="STEBBS.LBM.cooling">
+<span class="sig-name descname"><span class="pre">cooling</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Ts</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Ti</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">COP</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">P</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#STEBBS.LBM.cooling" title="Link to this definition"></a></dt>
+<dd><p>Heat ejected from the buliding by the cooling system [W]</p>
+<p>Designed to ramp power exponentially according to temperature
+difference.
+Parameters
+———-
+Ts : float</p>
+<blockquote>
+<div><p>Set point temperature for cooling load [K]</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Ti<span class="classifier">float</span></dt><dd><p>Indoor air node temperature [K]</p>
+</dd>
+<dt>COP<span class="classifier">float</span></dt><dd><p>Rated efficiency of the total heating system</p>
+</dd>
+<dt>P<span class="classifier">float</span></dt><dd><p>Maximum power rating of the total heating system [W]</p>
+</dd>
+</dl>
+<section id="id5">
+<h3>Returns<a class="headerlink" href="#id5" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>float</dt><dd><p>q_cooling: Heat ejected from the buliding by the cooling system [W]</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="STEBBS.LBM.getAll">
+<span class="sig-name descname"><span class="pre">getAll</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#STEBBS.LBM.getAll" title="Link to this definition"></a></dt>
+<dd><p>Get all building attributes (list)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="STEBBS.LBM.getAllDHW">
+<span class="sig-name descname"><span class="pre">getAllDHW</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#STEBBS.LBM.getAllDHW" title="Link to this definition"></a></dt>
+<dd><p>Print all hot water attributes</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="STEBBS.LBM.getHTsAverage">
+<span class="sig-name descname"><span class="pre">getHTsAverage</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#STEBBS.LBM.getHTsAverage" title="Link to this definition"></a></dt>
+<dd><p>Get heating set points from current and two previous time steps [K]
+(np.ndarray)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="STEBBS.LBM.getHWTsAverage">
+<span class="sig-name descname"><span class="pre">getHWTsAverage</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#STEBBS.LBM.getHWTsAverage" title="Link to this definition"></a></dt>
+<dd><p>Get hot water set points from current and two previous time steps [K]
+(np.ndarray)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="STEBBS.LBM.getIndoorAirTemperature">
+<span class="sig-name descname"><span class="pre">getIndoorAirTemperature</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#STEBBS.LBM.getIndoorAirTemperature" title="Link to this definition"></a></dt>
+<dd><p>Get indoor air temperature [K] (float)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="STEBBS.LBM.getIndoorFloorTemperature">
+<span class="sig-name descname"><span class="pre">getIndoorFloorTemperature</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#STEBBS.LBM.getIndoorFloorTemperature" title="Link to this definition"></a></dt>
+<dd><p>Get indoor floor temperature [K] (float)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="STEBBS.LBM.getIndoorMassTemperature">
+<span class="sig-name descname"><span class="pre">getIndoorMassTemperature</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#STEBBS.LBM.getIndoorMassTemperature" title="Link to this definition"></a></dt>
+<dd><p>Get indoor mass temperature [K] (float)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="STEBBS.LBM.getIndoorWallTemperature">
+<span class="sig-name descname"><span class="pre">getIndoorWallTemperature</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#STEBBS.LBM.getIndoorWallTemperature" title="Link to this definition"></a></dt>
+<dd><p>Get indoor wall temperature [K] (float)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="STEBBS.LBM.getIndoorWindowTemperature">
+<span class="sig-name descname"><span class="pre">getIndoorWindowTemperature</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#STEBBS.LBM.getIndoorWindowTemperature" title="Link to this definition"></a></dt>
+<dd><p>Get indoor window temperature [K] (float)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="STEBBS.LBM.getOutdoorFloorTemperature">
+<span class="sig-name descname"><span class="pre">getOutdoorFloorTemperature</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#STEBBS.LBM.getOutdoorFloorTemperature" title="Link to this definition"></a></dt>
+<dd><p>Get outdoor floor temperature [K] (float)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="STEBBS.LBM.getOutdoorWallTemperature">
+<span class="sig-name descname"><span class="pre">getOutdoorWallTemperature</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#STEBBS.LBM.getOutdoorWallTemperature" title="Link to this definition"></a></dt>
+<dd><p>Get outdoor wall temperature [K] (float)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="STEBBS.LBM.getOutdoorWindowTemperature">
+<span class="sig-name descname"><span class="pre">getOutdoorWindowTemperature</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#STEBBS.LBM.getOutdoorWindowTemperature" title="Link to this definition"></a></dt>
+<dd><p>Get outdoor window temperature [K] (float)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="STEBBS.LBM.getTimestepEnergyExchanges">
+<span class="sig-name descname"><span class="pre">getTimestepEnergyExchanges</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#STEBBS.LBM.getTimestepEnergyExchanges" title="Link to this definition"></a></dt>
+<dd><p>Get all surface energy exchanges of the timestep calculation
+In order:
+Transmitted insolation through window [W] (Qsw_transmitted_window)
+Absorbed insolation by window (Qsw_absorbed_window) [W]
+Absorbed insolation by wall (Qsw_absorbed_wallroof) [W]
+Convective heat transfer indoor air and internal mass (Qconv_indair_to_indoormass) [W]
+Indoor wall surfaces radiative exchange (Qlw_net_intwallroof_to_allotherindoorsurfaces)
+Indoor window surface radiative exchange (Qlw_net_intwindow_to_allotherindoorsurfaces)
+Ground floor internal radiative exchange (Qlw_net_intgroundfloor_to_allotherindoorsurfaces)
+Internal appliance gains (Q_appliance) [W]
+Ventilation heat transfer (Q_ventilation) [W]
+Indoor wall convective heat transfer (Qconv_indair_to_intwallroof) [W]
+Indoor window convective heat transfer (Qconv_indair_to_intwindow) [W]
+Indoor floor convective heat transfer (Qconv_indair_to_intgroundfloor) [W]
+Additional system Heating Energy - loss due to efficiency (Qloss_efficiency_heating_air) [W]
+Wall heat conduction, inside to outside (Qcond_wallroof) [W]
+Window heat conduction, inside to outside (Qcond_window) [W]
+Floor heat conduction, inside to outside (Qcond_groundfloor) [W]
+Conducted heat to the ground (Qcond_ground) [W]
+Outside wall radiative heat transfer (Qlw_net_extwallroof_to_outair) [W]
+Outside window radiative heat transfer  (Qlw_net_extwindow_to_outair) [W]
+Outside wall convective heat transfer (Qconv_extwallroof_to_outair) [W]
+Outside window convective heat transfer (Qconv_extwindow_to_outair) [W]
+Heat and associated system energy ejected by cooling system
+of building [W]
+Heat storage flux (QS), [W]
+Heat storage flux of fabric (QS_fabric), [W]
+Heat storage flux of indoor air (QS_air), [W]</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="STEBBS.LBM.heating">
+<span class="sig-name descname"><span class="pre">heating</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Ts</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Ti</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">epsilon</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">P</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#STEBBS.LBM.heating" title="Link to this definition"></a></dt>
+<dd><p>Heat injected into building by heating system [W]</p>
+<p>Designed to ramp power exponentially according to temperature
+difference.
+Parameters
+———-
+Ts : float</p>
+<blockquote>
+<div><p>Set point temperature for heating load [K]</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Ti<span class="classifier">float</span></dt><dd><p>Indoor air node temperature [K]</p>
+</dd>
+<dt>epsilon<span class="classifier">float</span></dt><dd><p>Rated efficiency of the total heating system</p>
+</dd>
+<dt>P<span class="classifier">float</span></dt><dd><p>Maximum power rating of the total heating system [W]</p>
+</dd>
+</dl>
+<section id="id6">
+<h3>Returns<a class="headerlink" href="#id6" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>float</dt><dd><p>q_heating: Heat injected into building by heating system [W]</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="STEBBS.LBM.indoorConvectionHeatTransfer">
+<span class="sig-name descname"><span class="pre">indoorConvectionHeatTransfer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">A</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Twi</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Ti</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#STEBBS.LBM.indoorConvectionHeatTransfer" title="Link to this definition"></a></dt>
+<dd><p>Indoor convection on wall surfaces: convective heat transfer between
+air node and wall node(s) [W]
+Parameters
+———-
+h : float</p>
+<blockquote>
+<div><p>Convection coefficient for wall surface type (i.e. solid wall,
+window) [W m-2 K-1]</p>
+</div></blockquote>
+<dl class="simple">
+<dt>A<span class="classifier">float</span></dt><dd><p>Total surface area of wall surface type [m2]</p>
+</dd>
+<dt>Twi<span class="classifier">float</span></dt><dd><p>Wall surface temperature for surface [K]</p>
+</dd>
+<dt>Ti<span class="classifier">float</span></dt><dd><p>Internal air temperature [K]</p>
+</dd>
+</dl>
+<section id="id7">
+<h3>Returns<a class="headerlink" href="#id7" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>float</dt><dd><p>ind_cht: Indoor convection on wall surfaces</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="STEBBS.LBM.indoorRadiativeHeatTransfer">
+<span class="sig-name descname"><span class="pre">indoorRadiativeHeatTransfer</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#STEBBS.LBM.indoorRadiativeHeatTransfer" title="Link to this definition"></a></dt>
+<dd><p>Indoor radiative exchange between wall surfaces and mass internal
+object
+Returns
+——-
+float</p>
+<blockquote>
+<div><p>q: Indoor radiative exchange between wall surfaces and mass
+internal object</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="STEBBS.LBM.internalApplianceGains">
+<span class="sig-name descname"><span class="pre">internalApplianceGains</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">P</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#STEBBS.LBM.internalApplianceGains" title="Link to this definition"></a></dt>
+<dd><p>Calculates the internal gains [W] for total n appliances
+of given Power, P, with usage factor, f</p>
+<section id="id8">
+<h3>Parameters<a class="headerlink" href="#id8" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>P<span class="classifier">float</span></dt><dd><p>Power rating of appliances [W]</p>
+</dd>
+<dt>f<span class="classifier">float</span></dt><dd><p>Usage factor of appliances</p>
+</dd>
+<dt>n<span class="classifier">int</span></dt><dd><p>Number of appliances</p>
+</dd>
+</dl>
+</section>
+<section id="id9">
+<h3>Returns<a class="headerlink" href="#id9" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>float</dt><dd><p>in_app_gain: Internal appliance heat gain [W]</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="STEBBS.LBM.internalConvectionHeatTransfer">
+<span class="sig-name descname"><span class="pre">internalConvectionHeatTransfer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">A</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Tio</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Ti</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#STEBBS.LBM.internalConvectionHeatTransfer" title="Link to this definition"></a></dt>
+<dd><p>Indoor convection on surfaces of objects and internal walls in building</p>
+<p>These are considered together as a single mass object with equal
+temperature [W]
+Parameters
+———-
+h : float</p>
+<blockquote>
+<div><p>Convection coefficient for wall surface type (i.e. solid wall,
+window) [W m-2 K-1]</p>
+</div></blockquote>
+<dl class="simple">
+<dt>A<span class="classifier">float</span></dt><dd><p>Total surface area of wall surface type [m2]</p>
+</dd>
+<dt>Tio<span class="classifier">float</span></dt><dd><p>Surface temperature of internal objects [K]</p>
+</dd>
+<dt>Ti<span class="classifier">float</span></dt><dd><p>Indoor air temperature [K]</p>
+</dd>
+</dl>
+<section id="id10">
+<h3>Returns<a class="headerlink" href="#id10" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>float</dt><dd><p>int_cht : Indoor convection on surfaces of objects and internal
+walls in building</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="STEBBS.LBM.internalOccupancyGains">
+<span class="sig-name descname"><span class="pre">internalOccupancyGains</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Occupants</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metRate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">LSR</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#STEBBS.LBM.internalOccupancyGains" title="Link to this definition"></a></dt>
+<dd><p>Calculates the internal gains from building occupants</p>
+<p>Returns the latent heat and sensible heat from all occupants
+Parameters
+———-
+Occupants : int</p>
+<blockquote>
+<div><p>Number of occupants</p>
+</div></blockquote>
+<dl class="simple">
+<dt>metRate<span class="classifier">float</span></dt><dd><p>Metabolic rate of occupants [W]</p>
+</dd>
+<dt>LSR<span class="classifier">float</span></dt><dd><p>Latent to sensible ratio of metabolic heat release</p>
+</dd>
+</dl>
+<section id="id11">
+<h3>Returns<a class="headerlink" href="#id11" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>float</dt><dd><p>occ_m: internal gains from building occupants [W]</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="STEBBS.LBM.outdoorConvectionHeatTransfer">
+<span class="sig-name descname"><span class="pre">outdoorConvectionHeatTransfer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">A</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Two</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Ta</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#STEBBS.LBM.outdoorConvectionHeatTransfer" title="Link to this definition"></a></dt>
+<dd><p>Outdoor convection on surfaces: convective heat transfer between
+outside wall surface and ambient air node [W]
+Parameters
+———-
+h : float</p>
+<blockquote>
+<div><p>Convection coefficient for wall surface type (i.e. solid wall,
+window) [W m-2 K-1]</p>
+</div></blockquote>
+<dl class="simple">
+<dt>A<span class="classifier">float</span></dt><dd><p>Total surface area of wall surface type [m2]</p>
+</dd>
+<dt>Two<span class="classifier">float</span></dt><dd><p>Wall outdoor-surface temperature [K]</p>
+</dd>
+<dt>Ta<span class="classifier">float</span></dt><dd><p>Ambient air temperature (determined outside this model) [K]</p>
+</dd>
+</dl>
+<section id="id12">
+<h3>Returns<a class="headerlink" href="#id12" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>float</dt><dd><p>out_cht: Outdoor convection on surfaces</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="STEBBS.LBM.outdoorRadiativeHeatTransfer">
+<span class="sig-name descname"><span class="pre">outdoorRadiativeHeatTransfer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">A</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">emis</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Two</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Ts</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#STEBBS.LBM.outdoorRadiativeHeatTransfer" title="Link to this definition"></a></dt>
+<dd><p>Outdoor radiation from outdoor surface</p>
+<section id="id13">
+<h3>Parameters<a class="headerlink" href="#id13" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>f<span class="classifier">float</span></dt><dd><p>All view factors</p>
+</dd>
+<dt>A<span class="classifier">float</span></dt><dd><p>Building wall surface area for wall component [m2]</p>
+</dd>
+<dt>emis<span class="classifier">float</span></dt><dd><p>Emissivity of surface NOTE: Considered constant for all surfaces
+here, not implemented as list</p>
+</dd>
+<dt>Two<span class="classifier">float</span></dt><dd><p>Outdoor surface temperatures for each wall component [K]</p>
+</dd>
+<dt>Ts<span class="classifier">float</span></dt><dd><p>Surface(or effective sky) temperatures for surface with which the wall
+component has a view (i.e. corresponding list to f) [K]</p>
+</dd>
+</dl>
+</section>
+<section id="id14">
+<h3>Returns<a class="headerlink" href="#id14" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>float</dt><dd><p>q: Outdoor radiation from outdoor surface</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="STEBBS.LBM.reinitialiseHC">
+<span class="sig-name descname"><span class="pre">reinitialiseHC</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#STEBBS.LBM.reinitialiseHC" title="Link to this definition"></a></dt>
+<dd><p>Reinitialises the total heating and cooling of the building object.</p>
+<p>May want to call this each time an instance of class is called from
+external program (i.e. to give Qf for urban building energy model
+timestep)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="STEBBS.LBM.reinitialiseTemperatures">
+<span class="sig-name descname"><span class="pre">reinitialiseTemperatures</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ti</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tm</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">twi</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">two</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">twii</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">twio</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tfi</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tfo</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#STEBBS.LBM.reinitialiseTemperatures" title="Link to this definition"></a></dt>
+<dd><p>Reinitialise surface and mass temperatures for building</p>
+<section id="id15">
+<h3>Parameters<a class="headerlink" href="#id15" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>ti<span class="classifier">float</span></dt><dd><p>Indoor air temperature [K]</p>
+</dd>
+<dt>tm<span class="classifier">float</span></dt><dd><p>Indoor mass temperature [K]</p>
+</dd>
+<dt>twi<span class="classifier">float</span></dt><dd><p>Indoor wall surface temperature [K]</p>
+</dd>
+<dt>two<span class="classifier">float</span></dt><dd><p>Outdoor wall surface temperature [K]</p>
+</dd>
+<dt>twii<span class="classifier">float</span></dt><dd><p>Indoor window surface temperature [K]</p>
+</dd>
+<dt>twio<span class="classifier">float</span></dt><dd><p>Outdoor window surface temperature [K]</p>
+</dd>
+<dt>tfi<span class="classifier">float</span></dt><dd><p>Indoor ground floor surface temperature [K]</p>
+</dd>
+<dt>tfo<span class="classifier">float</span></dt><dd><p>Outdoor ground floor surface temperature [K]</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="STEBBS.LBM.setAirAndMassVolume">
+<span class="sig-name descname"><span class="pre">setAirAndMassVolume</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#STEBBS.LBM.setAirAndMassVolume" title="Link to this definition"></a></dt>
+<dd><p>Sets air and internal mass volumes [m3] of building with new air to
+mass volume ratio</p>
+<section id="id16">
+<h3>Parameters<a class="headerlink" href="#id16" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>f<span class="classifier">float</span></dt><dd><p>Total volume of building [m3]</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="STEBBS.LBM.setApplianceData">
+<span class="sig-name descname"><span class="pre">setApplianceData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#STEBBS.LBM.setApplianceData" title="Link to this definition"></a></dt>
+<dd><p>Sets appliance data for building, in order: appliance power rating [W],
+total number of appliances, appliance usage factor
+Parameters
+———-
+a : float</p>
+<blockquote>
+<div><p>Appliance data for building, in order: appliance power rating [W],
+total number of appliances, appliance usage factor</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="STEBBS.LBM.setConvectionCoefficients">
+<span class="sig-name descname"><span class="pre">setConvectionCoefficients</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hi</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ho</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#STEBBS.LBM.setConvectionCoefficients" title="Link to this definition"></a></dt>
+<dd><p>Sets convective heat transfer coefficients of building [W m-1 K-1]</p>
+<section id="id17">
+<h3>Parameters<a class="headerlink" href="#id17" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>hi<span class="classifier">list</span></dt><dd><p>Internal convective heat transfer coefficients, indoor: wall and
+roof, internal mass, floor, windows [W m-2 K-1]</p>
+</dd>
+<dt>ho<span class="classifier">list</span></dt><dd><p>External convection coefficients, in order: wall and roof,
+window [W m-2 K-1]</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="STEBBS.LBM.setCoolingSystem">
+<span class="sig-name descname"><span class="pre">setCoolingSystem</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">c</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#STEBBS.LBM.setCoolingSystem" title="Link to this definition"></a></dt>
+<dd><p>Sets building cooling system maximum cooling power [W]
+Parameters
+———-
+c : float</p>
+<blockquote>
+<div><p>Maximum cooling power demand [W]</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="STEBBS.LBM.setDHWDrainageVolumeFlowRate">
+<span class="sig-name descname"><span class="pre">setDHWDrainageVolumeFlowRate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">V</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#STEBBS.LBM.setDHWDrainageVolumeFlowRate" title="Link to this definition"></a></dt>
+<dd><p>Sets hot water drainage flow rate [m3 s-1]
+Parameters
+———-
+V : float</p>
+<blockquote>
+<div><p>Hot water drainage flow rate [m3 s-1]</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="STEBBS.LBM.setDHWHeatingSetpoint">
+<span class="sig-name descname"><span class="pre">setDHWHeatingSetpoint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Ts</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#STEBBS.LBM.setDHWHeatingSetpoint" title="Link to this definition"></a></dt>
+<dd><p>Sets hot water heating setpoint temperature [K]</p>
+<section id="id18">
+<h3>Parameters<a class="headerlink" href="#id18" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>Ts<span class="classifier">float</span></dt><dd><p>Hot water heating setpoint temperature [K]</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="STEBBS.LBM.setDHWUsageVolume">
+<span class="sig-name descname"><span class="pre">setDHWUsageVolume</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">V</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#STEBBS.LBM.setDHWUsageVolume" title="Link to this definition"></a></dt>
+<dd><p>Set volume of hot water in use volume [m3]
+Parameters
+———-
+V : float</p>
+<blockquote>
+<div><p>Volume of hot water in use [m3]</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="STEBBS.LBM.setDHWUsageVolumeFlowRate">
+<span class="sig-name descname"><span class="pre">setDHWUsageVolumeFlowRate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">V</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#STEBBS.LBM.setDHWUsageVolumeFlowRate" title="Link to this definition"></a></dt>
+<dd><p>Sets hot water usage flow rate [m3 s-1]
+Parameters
+———-
+V : float</p>
+<blockquote>
+<div><p>Hot water usage flow rate [m3 s-1]</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="STEBBS.LBM.setDepth">
+<span class="sig-name descname"><span class="pre">setDepth</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">d</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#STEBBS.LBM.setDepth" title="Link to this definition"></a></dt>
+<dd><p>Sets depth (y-axis) of building [m]</p>
+<section id="id19">
+<h3>Parameters<a class="headerlink" href="#id19" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>d<span class="classifier">float</span></dt><dd><p>Depth of building [m]</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="STEBBS.LBM.setEffectiveConductivity">
+<span class="sig-name descname"><span class="pre">setEffectiveConductivity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#STEBBS.LBM.setEffectiveConductivity" title="Link to this definition"></a></dt>
+<dd><p>Sets effective conductivity of building components, in order: wall
+and roof, ground floor, windows, external ground [W m-1 K-1]
+Parameters
+———-
+k : list</p>
+<blockquote>
+<div><p>Effective conductivities, in order: wall and roof, ground floor,
+windows, external ground [W m-1 K-1]</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="STEBBS.LBM.setEmissivity">
+<span class="sig-name descname"><span class="pre">setEmissivity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">e</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#STEBBS.LBM.setEmissivity" title="Link to this definition"></a></dt>
+<dd><p>Sets emissivities of building components, in order: external wall and
+roof, internal wall and roof, internal mass, external windows, internal
+windows</p>
+<section id="id20">
+<h3>Parameters<a class="headerlink" href="#id20" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>e<span class="classifier">list</span></dt><dd><p>Emissivities of building components, in order: external wall and
+roof, internal wall and roof, internal mass, external windows,
+internal windows</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="STEBBS.LBM.setFloorArea">
+<span class="sig-name descname"><span class="pre">setFloorArea</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#STEBBS.LBM.setFloorArea" title="Link to this definition"></a></dt>
+<dd><p>Sets building floor plan area [m2]</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="STEBBS.LBM.setFloorThickness">
+<span class="sig-name descname"><span class="pre">setFloorThickness</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#STEBBS.LBM.setFloorThickness" title="Link to this definition"></a></dt>
+<dd><p>Sets building ground floor thickness [m]</p>
+<section id="id21">
+<h3>Parameters<a class="headerlink" href="#id21" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>t<span class="classifier">float</span></dt><dd><p>Thickness of ground floor [m]</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="STEBBS.LBM.setFloorVolume">
+<span class="sig-name descname"><span class="pre">setFloorVolume</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#STEBBS.LBM.setFloorVolume" title="Link to this definition"></a></dt>
+<dd><p>Sets building ground floor volume [m3]</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="STEBBS.LBM.setGVFactor">
+<span class="sig-name descname"><span class="pre">setGVFactor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#STEBBS.LBM.setGVFactor" title="Link to this definition"></a></dt>
+<dd><p>Sets sky view factor from ground and buildings</p>
+<section id="id22">
+<h3>Parameters<a class="headerlink" href="#id22" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>s<span class="classifier">float</span></dt><dd><p>Sky view factor from ground and buildings</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="STEBBS.LBM.setHTsAverage">
+<span class="sig-name descname"><span class="pre">setHTsAverage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">c</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#STEBBS.LBM.setHTsAverage" title="Link to this definition"></a></dt>
+<dd><p>Sets the heating set points from current and two previous time steps
+(in order) [K]</p>
+<p>Value only retrieved to calculate for next, not directly used in
+calculations.</p>
+<section id="id23">
+<h3>Parameters<a class="headerlink" href="#id23" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>c<span class="classifier">list</span></dt><dd><p>Heating set points from current and two previous time steps
+(in order) [K]</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="STEBBS.LBM.setHWTMaxPower">
+<span class="sig-name descname"><span class="pre">setHWTMaxPower</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">no_holds</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#STEBBS.LBM.setHWTMaxPower" title="Link to this definition"></a></dt>
+<dd><p>Sets the maximum heating power for the hot water tank [W]</p>
+<section id="id24">
+<h3>Parameters<a class="headerlink" href="#id24" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>no_holds<span class="classifier">float</span></dt><dd><p>Number of households in the buliding</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="STEBBS.LBM.setHWTPower">
+<span class="sig-name descname"><span class="pre">setHWTPower</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">p</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#STEBBS.LBM.setHWTPower" title="Link to this definition"></a></dt>
+<dd><p>Sets current hot water tank power demand [W]
+Parameters
+———-
+p : float</p>
+<blockquote>
+<div><p>Current hot water tank power demand [W]</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="STEBBS.LBM.setHWTPowerAverage">
+<span class="sig-name descname"><span class="pre">setHWTPowerAverage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">c</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#STEBBS.LBM.setHWTPowerAverage" title="Link to this definition"></a></dt>
+<dd><p>Sets the hot water set points from current and two previous time steps
+(in order) [K]
+Parameters
+———-
+c : np.ndarray</p>
+<blockquote>
+<div><p>Hot water set points from current and two previous time steps [K]</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="STEBBS.LBM.setHWTdims">
+<span class="sig-name descname"><span class="pre">setHWTdims</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">volumes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#STEBBS.LBM.setHWTdims" title="Link to this definition"></a></dt>
+<dd><p>Sets the dimensions of the hot water tank (volume, surface area,
+volume of hot water tank walls, minimum and maximum volumes of hot
+water vessel.</p>
+<section id="id25">
+<h3>Parameters<a class="headerlink" href="#id25" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>volumes<span class="classifier">np.ndarray</span></dt><dd><p>Volumes of hot water tanks for household groups [m3]</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="STEBBS.LBM.setHWTsAverage">
+<span class="sig-name descname"><span class="pre">setHWTsAverage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">c</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#STEBBS.LBM.setHWTsAverage" title="Link to this definition"></a></dt>
+<dd><p>Sets the hot water set points from current and two previous time steps
+(in order) [K]</p>
+<p>Value only retrieved to calculate for next, not directly used in
+calculations.</p>
+<section id="id26">
+<h3>Parameters<a class="headerlink" href="#id26" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>c<span class="classifier">list</span></dt><dd><p>Hot water set points from current and two previous time steps
+(in order) [K]</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="STEBBS.LBM.setHWflowrate">
+<span class="sig-name descname"><span class="pre">setHWflowrate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">from_tank</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">from_vessel</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#STEBBS.LBM.setHWflowrate" title="Link to this definition"></a></dt>
+<dd><p>Sets flow rates from the hot water tank and from the hot water vessel
+[m3 s-1]</p>
+<section id="id27">
+<h3>Parameters<a class="headerlink" href="#id27" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>from_tank<span class="classifier">float</span></dt><dd><p>Flow rate from the hot water tank to the hot water vessel [m3 s-1]</p>
+</dd>
+<dt>from_vessel<span class="classifier">float</span></dt><dd><p>Flow rate from the hot water vessel to the drain [m3 s-1]</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="STEBBS.LBM.setHeatingCoolingSetpoint">
+<span class="sig-name descname"><span class="pre">setHeatingCoolingSetpoint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Th</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Tc</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#STEBBS.LBM.setHeatingCoolingSetpoint" title="Link to this definition"></a></dt>
+<dd><p>Sets heating and cooling set point temperatures [K]</p>
+<section id="id28">
+<h3>Parameters<a class="headerlink" href="#id28" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>Th<span class="classifier">float</span></dt><dd><p>Heating set point temperature [K}</p>
+</dd>
+<dt>Tc<span class="classifier">float</span></dt><dd><p>Cooling set point temperature [K]</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="STEBBS.LBM.setHeatingSystem">
+<span class="sig-name descname"><span class="pre">setHeatingSystem</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#STEBBS.LBM.setHeatingSystem" title="Link to this definition"></a></dt>
+<dd><p>Sets heating system parameters for building, in order: maximum power
+[W], system efficiency
+Parameters
+———-
+h : list</p>
+<blockquote>
+<div><p>Heating system parameters for building, in order: maximum power
+[W], system efficiency</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="STEBBS.LBM.setHeight">
+<span class="sig-name descname"><span class="pre">setHeight</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#STEBBS.LBM.setHeight" title="Link to this definition"></a></dt>
+<dd><p>Sets height_building (z-axis) of building [m]</p>
+<section id="id29">
+<h3>Parameters<a class="headerlink" href="#id29" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>h<span class="classifier">float</span></dt><dd><p>Height of building [m]</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="STEBBS.LBM.setInternalMassArea">
+<span class="sig-name descname"><span class="pre">setInternalMassArea</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#STEBBS.LBM.setInternalMassArea" title="Link to this definition"></a></dt>
+<dd><p>Sets internal mass surface area in building [m3]
+Parameters
+———-
+a : float</p>
+<blockquote>
+<div><p>Internal mass surface area</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="STEBBS.LBM.setLSR">
+<span class="sig-name descname"><span class="pre">setLSR</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">l</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#STEBBS.LBM.setLSR" title="Link to this definition"></a></dt>
+<dd><p>Sets the latent to sensible heat ratio of occupants
+Parameters
+———-
+l : float</p>
+<blockquote>
+<div><p>Latent to sensible heat ratio of occupant metabolism</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="STEBBS.LBM.setMaxHeatingPower">
+<span class="sig-name descname"><span class="pre">setMaxHeatingPower</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#STEBBS.LBM.setMaxHeatingPower" title="Link to this definition"></a></dt>
+<dd><p>Sets building heating system maximum heating power [W]
+Parameters
+———-
+h : float</p>
+<blockquote>
+<div><p>Maximum heating power demand [W]</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="STEBBS.LBM.setMetabolicRate">
+<span class="sig-name descname"><span class="pre">setMetabolicRate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">m</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#STEBBS.LBM.setMetabolicRate" title="Link to this definition"></a></dt>
+<dd><p>Sets the metabolic rate of building occupants [W}
+Parameters
+———-
+m : float</p>
+<blockquote>
+<div><p>Metabolic rate of building occupants [W]</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="STEBBS.LBM.setOccupancyNumber">
+<span class="sig-name descname"><span class="pre">setOccupancyNumber</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">o</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#STEBBS.LBM.setOccupancyNumber" title="Link to this definition"></a></dt>
+<dd><p>Sets the number of occupants in the building
+Parameters
+———-
+o : int</p>
+<blockquote>
+<div><p>Number of occupants in the building</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="STEBBS.LBM.setOccupantData">
+<span class="sig-name descname"><span class="pre">setOccupantData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">o</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#STEBBS.LBM.setOccupantData" title="Link to this definition"></a></dt>
+<dd><p>Sets occupant data for building, in order: number occupants, metabolic
+rate [W], latent to sensible heat ratio
+Parameters
+———-
+o : list</p>
+<blockquote>
+<div><p>Occupant data for building, in order: number occupants [W],
+metabolic rate, latent to sensible heat ratio</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="STEBBS.LBM.setSHC">
+<span class="sig-name descname"><span class="pre">setSHC</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">c</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#STEBBS.LBM.setSHC" title="Link to this definition"></a></dt>
+<dd><p>Sets specific heat capacities of buliding components, in order: wall
+and roof, ground floor, windows, internal mass, indoor air [J K-1 kg-1]</p>
+<section id="id30">
+<h3>Parameters<a class="headerlink" href="#id30" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>c: list</dt><dd><p>Specific heat capacities of buliding components, in order: wall and
+roof, ground floor, windows, internal mass, indoor air [J K-1 kg-1]</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="STEBBS.LBM.setSVFactor">
+<span class="sig-name descname"><span class="pre">setSVFactor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#STEBBS.LBM.setSVFactor" title="Link to this definition"></a></dt>
+<dd><p>Sets sky view factor from ground and buildings</p>
+<section id="id31">
+<h3>Parameters<a class="headerlink" href="#id31" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>s<span class="classifier">float</span></dt><dd><p>Sky view factor from ground and buildings</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="STEBBS.LBM.setVentilationRate">
+<span class="sig-name descname"><span class="pre">setVentilationRate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">VR</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#STEBBS.LBM.setVentilationRate" title="Link to this definition"></a></dt>
+<dd><p>Sets ventilation rate [m3 s-1]
+Parameters
+———-
+VR : float</p>
+<blockquote>
+<div><p>Ventilation rate [m3 s-1]</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="STEBBS.LBM.setViewFactors">
+<span class="sig-name descname"><span class="pre">setViewFactors</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#STEBBS.LBM.setViewFactors" title="Link to this definition"></a></dt>
+<dd><p>Resets view factors</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="STEBBS.LBM.setWTsetpoint">
+<span class="sig-name descname"><span class="pre">setWTsetpoint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#STEBBS.LBM.setWTsetpoint" title="Link to this definition"></a></dt>
+<dd><p>Sets hot water setpoint [K]</p>
+<section id="id32">
+<h3>Parameters<a class="headerlink" href="#id32" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>s<span class="classifier">float</span></dt><dd><p>Hot water set point [K]</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="STEBBS.LBM.setWWR">
+<span class="sig-name descname"><span class="pre">setWWR</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wwr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#STEBBS.LBM.setWWR" title="Link to this definition"></a></dt>
+<dd><p>Sets building window to wall ratio
+Parameters
+———-
+wwr : float</p>
+<blockquote>
+<div><p>Window to wall ratio</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="STEBBS.LBM.setWallArea">
+<span class="sig-name descname"><span class="pre">setWallArea</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#STEBBS.LBM.setWallArea" title="Link to this definition"></a></dt>
+<dd><p>Sets wall area of building [m2]</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="STEBBS.LBM.setWallTAR">
+<span class="sig-name descname"><span class="pre">setWallTAR</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#STEBBS.LBM.setWallTAR" title="Link to this definition"></a></dt>
+<dd><p>Sets (in order) transmissivity, absorbtivity and reflectivity of
+building walls</p>
+<section id="id33">
+<h3>Parameters<a class="headerlink" href="#id33" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>t<span class="classifier">list</span></dt><dd><p>Transmissivity, absorbtivity and reflectivity of building walls</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="STEBBS.LBM.setWallThickness">
+<span class="sig-name descname"><span class="pre">setWallThickness</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#STEBBS.LBM.setWallThickness" title="Link to this definition"></a></dt>
+<dd><p>Sets thickeness of building walls [m]
+Parameters
+———-
+t : float</p>
+<blockquote>
+<div><p>Building wall thickness [m]</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="STEBBS.LBM.setWallVolume">
+<span class="sig-name descname"><span class="pre">setWallVolume</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#STEBBS.LBM.setWallVolume" title="Link to this definition"></a></dt>
+<dd><p>Sets wall volume of building [m3]</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="STEBBS.LBM.setWidth">
+<span class="sig-name descname"><span class="pre">setWidth</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">w</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#STEBBS.LBM.setWidth" title="Link to this definition"></a></dt>
+<dd><p>Set width (x-axis) of building [m]
+Parameters
+———-
+w : float</p>
+<blockquote>
+<div><p>Width of building [m]</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="STEBBS.LBM.setWindowArea">
+<span class="sig-name descname"><span class="pre">setWindowArea</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#STEBBS.LBM.setWindowArea" title="Link to this definition"></a></dt>
+<dd><p>Sets total window area of building [m2]</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="STEBBS.LBM.setWindowTAR">
+<span class="sig-name descname"><span class="pre">setWindowTAR</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#STEBBS.LBM.setWindowTAR" title="Link to this definition"></a></dt>
+<dd><p>Sets (in order) transmissivity, absorbtivity and reflectivity of
+building windows</p>
+<section id="id34">
+<h3>Parameters<a class="headerlink" href="#id34" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>t<span class="classifier">list</span></dt><dd><p>Transmissivity, absorbtivity and reflectivity of building
+windows</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="STEBBS.LBM.setWindowThickness">
+<span class="sig-name descname"><span class="pre">setWindowThickness</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#STEBBS.LBM.setWindowThickness" title="Link to this definition"></a></dt>
+<dd><p>Set thickness of windows in building [m]
+Parameters
+———-
+t : float</p>
+<blockquote>
+<div><p>Thickness of windows in buliding [m]</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="STEBBS.LBM.setWindowVolume">
+<span class="sig-name descname"><span class="pre">setWindowVolume</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#STEBBS.LBM.setWindowVolume" title="Link to this definition"></a></dt>
+<dd><p>Sets building window volume [m3]</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="STEBBS.LBM.setdensity">
+<span class="sig-name descname"><span class="pre">setdensity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">r</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#STEBBS.LBM.setdensity" title="Link to this definition"></a></dt>
+<dd><p>Sets the density of building components, in order: wall and roof,
+ground floor, windows, internal mass and indoor air [kg m-3]
+Parameters
+———-
+r : list</p>
+<blockquote>
+<div><p>Densities, in order: wall and roof, ground floor, windows, internal
+mass and indoor air [kg m-3]</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="STEBBS.LBM.timeStepCalculation_c">
+<span class="sig-name descname"><span class="pre">timeStepCalculation_c</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Tair_out</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Tground_deep</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Tsurf</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Tsky</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">density_air_out</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cp_air_out</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Qsw_dn_extroof</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Qsw_dn_extwall</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Qlw_dn_extwall</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Qlw_dn_extroof</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timestep</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resolution</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#STEBBS.LBM.timeStepCalculation_c" title="Link to this definition"></a></dt>
+<dd><p>Simulates energy exchanges between all building component, using
+environmental and behavioural inputs, giving QF,B as output</p>
+<p>Wrapper for STEBBS C code</p>
+<section id="id35">
+<h3>Parameters<a class="headerlink" href="#id35" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>Tair_out<span class="classifier">float</span></dt><dd><p>Outdoor air temperature [K]</p>
+</dd>
+<dt>Tground_deep<span class="classifier">float</span></dt><dd><p>Deep ground temperature [K]</p>
+</dd>
+<dt>Tsurf<span class="classifier">float</span></dt><dd><p>Surface temperature [K]</p>
+</dd>
+<dt>Tsky<span class="classifier">float</span></dt><dd><p>Effective sky temperature [K]</p>
+</dd>
+<dt>density_air_out<span class="classifier">float</span></dt><dd><p>Density of outdoor air [kg m-3]</p>
+</dd>
+<dt>cp_air_out<span class="classifier">float</span></dt><dd><p>Specific heat capacity of outdoor air [J K-1 kg-1]</p>
+</dd>
+<dt>Qsw_dn_extroof<span class="classifier">float</span></dt><dd><p>Solar irradiance [W m-2] on horizontal surfaces (e.g. roof)</p>
+</dd>
+<dt>Qsw_dn_extwall<span class="classifier">float</span></dt><dd><p>Solar irradiance [W m-2] on vertical surfaces (e.g. wall, windows)</p>
+</dd>
+<dt>timestep<span class="classifier">int</span></dt><dd><p>Time step</p>
+</dd>
+<dt>resolution<span class="classifier">int</span></dt><dd><p>Resolution of time step [s]</p>
+</dd>
+</dl>
+</section>
+<section id="id36">
+<h3>Returns<a class="headerlink" href="#id36" title="Link to this heading"></a></h3>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="STEBBS.LBM.ventilationHeatTransfer">
+<span class="sig-name descname"><span class="pre">ventilationHeatTransfer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rho</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Cp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">V</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">To</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Ti</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#STEBBS.LBM.ventilationHeatTransfer" title="Link to this definition"></a></dt>
+<dd><p>Building ventilation rate heat transfer (i.e. not recirculated air) [W]</p>
+<p>Return the heat flux resulting in the building (that outside the
+building is just the inverse sign of this value - energy balance)
+Parameters
+———-
+rho : float</p>
+<blockquote>
+<div><p>Air density [kg m-3]</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Cp<span class="classifier">float</span></dt><dd><p>Specific heat capacity of air at constant pressure [ J K-1 kg-1]</p>
+</dd>
+<dt>V<span class="classifier">float</span></dt><dd><p>Volumetric flow rate [m3 s-1]</p>
+</dd>
+<dt>To<span class="classifier">float</span></dt><dd><p>Outdoor temperature [K]</p>
+</dd>
+<dt>Ti<span class="classifier">float</span></dt><dd><p>Indoor temperature [K]</p>
+</dd>
+</dl>
+<section id="id37">
+<h3>Returns<a class="headerlink" href="#id37" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>float</dt><dd><p>q_in: Building ventilation rate heat transfer</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="STEBBS.LBM.wallConduction">
+<span class="sig-name descname"><span class="pre">wallConduction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">k_eff</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">A</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Twi</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Two</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">L</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#STEBBS.LBM.wallConduction" title="Link to this definition"></a></dt>
+<dd><p>Conduction through component, assuming 1D conduction
+(can be floor/roof/wall/window) [W]
+Parameters
+———-
+k_eff : float</p>
+<blockquote>
+<div><p>Effective conductivity of lumped component [W m-1 K-1]</p>
+</div></blockquote>
+<dl class="simple">
+<dt>A<span class="classifier">float</span></dt><dd><p>Total surface area of component [m2]</p>
+</dd>
+<dt>Twi<span class="classifier">float</span></dt><dd><p>Indoor component surface temperature [K]</p>
+</dd>
+<dt>Two<span class="classifier">float</span></dt><dd><p>Outdoor component surface temperature [K]</p>
+</dd>
+<dt>L<span class="classifier">float</span></dt><dd><p>Thickness of component [m]</p>
+</dd>
+</dl>
+<section id="id38">
+<h3>Returns<a class="headerlink" href="#id38" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>float</dt><dd><p>wall_con: Conduction though component [W]</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="STEBBS.LBM.wallInsolation">
+<span class="sig-name descname"><span class="pre">wallInsolation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Irr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Ab</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">A</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#STEBBS.LBM.wallInsolation" title="Link to this definition"></a></dt>
+<dd><p>Solar insolation through wall surface [W m-2]
+Parameters
+———-
+Irr : float</p>
+<blockquote>
+<div><p>Irradiance incident on window [W m-2]</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Ab<span class="classifier">float</span></dt><dd><p>Effective absorptance of surface</p>
+</dd>
+<dt>A: float</dt><dd><p>Area [m2]</p>
+</dd>
+</dl>
+<section id="id39">
+<h3>Returns<a class="headerlink" href="#id39" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>float</dt><dd><p>wa_in: Solar insolation through wall surface [W]</p>
+</dd>
+</dl>
+<p>#Modified by Yiqing Liu
+1) wa_in has considered the area of wall, the unit become Watt to match the surface energy balance
+2)irr could be iether horizontal Kdown or vertical Qsw_dn_extwall from BEERs model</p>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="STEBBS.LBM.windowConduction">
+<span class="sig-name descname"><span class="pre">windowConduction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">k_eff</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">A</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Twi</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Two</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">L</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#STEBBS.LBM.windowConduction" title="Link to this definition"></a></dt>
+<dd><p>Conduction through component, assuming 1D conduction
+(can be floor/roof/wall/window) [W]
+Parameters
+———-
+k_eff : float</p>
+<blockquote>
+<div><p>Effective conductivity of lumped component [W m-1 K-1]</p>
+</div></blockquote>
+<dl class="simple">
+<dt>A<span class="classifier">float</span></dt><dd><p>Total surface area of component [m2]</p>
+</dd>
+<dt>Twi<span class="classifier">float</span></dt><dd><p>Indoor component surface temperature [K]</p>
+</dd>
+<dt>Two<span class="classifier">float</span></dt><dd><p>Outdoor component surface temperature [K]</p>
+</dd>
+<dt>L<span class="classifier">float</span></dt><dd><p>Thickness of component [m]</p>
+</dd>
+</dl>
+<section id="id40">
+<h3>Returns<a class="headerlink" href="#id40" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>float</dt><dd><p>win_con: Conduction though component [W]</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="STEBBS.LBM.windowInsolation">
+<span class="sig-name descname"><span class="pre">windowInsolation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Irr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Tr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">A</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#STEBBS.LBM.windowInsolation" title="Link to this definition"></a></dt>
+<dd><p>Solar insolation through window component [W m-2]</p>
+<section id="id41">
+<h3>Parameters<a class="headerlink" href="#id41" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>Irr<span class="classifier">float</span></dt><dd><p>Irradiance incident on window [W m-2]</p>
+</dd>
+<dt>Tr<span class="classifier">float</span></dt><dd><p>Effective transmissivity</p>
+</dd>
+<dt>A: float</dt><dd><p>Area [m2]</p>
+</dd>
+</dl>
+</section>
+<section id="id42">
+<h3>Returns<a class="headerlink" href="#id42" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>float</dt><dd><p>wi: Solar insolation on window component [W]</p>
+</dd>
+</dl>
+<p>#Modified by Yiqing Liu
+1)wi_in has considered the area of windows, the unit become Watt to match the surface energy balance equation
+2) irr could be iether horizontal Kdown or vertical Qsw_dn_extwall from BEERs model</p>
+</section>
+</dd></dl>
+
+</section>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Profile.html" class="btn btn-neutral float-left" title="Profile module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Megan McGrory.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

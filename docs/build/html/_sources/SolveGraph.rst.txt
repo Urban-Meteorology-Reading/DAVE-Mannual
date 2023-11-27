@@ -1,0 +1,7 @@
+SolveGraph module
+=================
+
+.. automodule:: SolveGraph
+    :members:
+    :undoc-members:
+    :show-inheritance:
